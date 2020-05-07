@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Examples - Category - Peter Avdjian</title>
+        <link>https://pavdjian.github,io/categories/examples/</link>
+        <description>Examples - Category - Peter Avdjian</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 06 May 2020 06:11:21 &#43;0100</lastBuildDate><atom:link href="https://pavdjian.github,io/categories/examples/" rel="self" type="application/rss+xml" /><item>
+    <title>My First Post</title>
+    <link>https://pavdjian.github,io/2020-05-06-my-first-post/</link>
+    <pubDate>Wed, 06 May 2020 06:11:21 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://pavdjian.github,io/2020-05-06-my-first-post/</guid>
+    <description><![CDATA[Hello World! ]]></description>
+</item></channel>
+</rss>

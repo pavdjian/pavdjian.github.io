@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Documentation - Category - Peter Avdjian</title>
+        <link>https://pavdjian.github,io/categories/documentation/</link>
+        <description>Documentation - Category - Peter Avdjian</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 May 2020 06:47:46 &#43;0100</lastBuildDate><atom:link href="https://pavdjian.github,io/categories/documentation/" rel="self" type="application/rss+xml" /><item>
+    <title>Lorem Ipsum - A Primer</title>
+    <link>https://pavdjian.github,io/2020-05-07-lorem-ipsum/</link>
+    <pubDate>Thu, 07 May 2020 06:47:46 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://pavdjian.github,io/2020-05-07-lorem-ipsum/</guid>
+    <description><![CDATA[Lorem Ipsum What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&rsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.]]></description>
+</item></channel>
+</rss>

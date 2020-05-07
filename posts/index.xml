@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Peter Avdjian</title>
-        <link>https://pavdjian.github,io/</link>
-        <description>This is My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 May 2020 06:47:46 &#43;0100</lastBuildDate><atom:link href="https://pavdjian.github,io/" rel="self" type="application/rss+xml" /><item>
+        <title>All Posts - Peter Avdjian</title>
+        <link>https://pavdjian.github,io/posts/</link>
+        <description>All Posts | Peter Avdjian</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 07 May 2020 06:47:46 &#43;0100</lastBuildDate><atom:link href="https://pavdjian.github,io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Lorem Ipsum - A Primer</title>
     <link>https://pavdjian.github,io/2020-05-07-lorem-ipsum/</link>
     <pubDate>Thu, 07 May 2020 06:47:46 &#43;0100</pubDate>

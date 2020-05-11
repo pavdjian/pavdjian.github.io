@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Peter Avdjian</title>
+    <link>https://peteravdjian.com/pages/</link>
+    <description>Recent content in Pages on Peter Avdjian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2020 06:23:50 +0100</lastBuildDate>
+    
+	<atom:link href="https://peteravdjian.com/pages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://peteravdjian.com/pages/about/</link>
+      <pubDate>Thu, 07 May 2020 06:23:50 +0100</pubDate>
+      
+      <guid>https://peteravdjian.com/pages/about/</guid>
+      <description>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &amp;lsquo;Content here, content here&amp;rsquo;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &amp;lsquo;lorem ipsum&amp;rsquo; will uncover many web sites still in their infancy.</description>
+    </item>
+    
+  </channel>
+</rss>

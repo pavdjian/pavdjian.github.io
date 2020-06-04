@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>tips - Tag - Peter Avdjian</title>
+        <link>https://peteravdjian.com/tags/tips/</link>
+        <description>tips - Tag - Peter Avdjian</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/tags/tips/" rel="self" type="application/rss+xml" /><item>
+    <title>How to Change Your Garmin App Settings</title>
+    <link>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</link>
+    <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</guid>
+    <description><![CDATA[In my time developing apps for Garmin wearables there is no doubt that the most common question I&rsquo;m asked by users is how to udpate the settings of an application.
+There are three ways to update your apps, I&rsquo;ll detail all of them below.
+1. Garmin Express   First thing&rsquo;s first, make sure you have downloaded and installed Garmin Express
+  Next, connect your watch with the appropriate USB cable and wait for it to show as being connected]]></description>
+</item><item>
+    <title>When Is a Git Repo Not a Git Repo?</title>
+    <link>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</link>
+    <pubDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</guid>
+    <description><![CDATA[I was working on a project recently and I noticed that my git gutter wasn&rsquo;t showing up in VS Code.
+Quick side note, for those that don&rsquo;t know, a git gutter, diff decorator or VCS gutter is a small element that typically shows up on the side of your code files to indicate a change between your local copy of the file and that which the version control system is tracking.]]></description>
+</item></channel>
+</rss>

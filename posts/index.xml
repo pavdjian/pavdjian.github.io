@@ -3,34 +3,23 @@
         <title>All Posts - Peter Avdjian</title>
         <link>https://peteravdjian.com/posts/</link>
         <description>All Posts | Peter Avdjian</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 08 May 2020 08:39:55 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Lightgallery Test</title>
-    <link>https://peteravdjian.com/posts/2020/05/2020-05-08-lightgallery-test/</link>
-    <pubDate>Fri, 08 May 2020 08:39:55 &#43;0100</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>How to Change Your Garmin App Settings</title>
+    <link>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</link>
+    <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/05/2020-05-08-lightgallery-test/</guid>
-    <description><![CDATA[Page of Pictures                Mountain" Mountain  Mountain Valley" Mountain Valley  Mountain Water" Mountain Water     ]]></description>
+    <guid>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</guid>
+    <description><![CDATA[In my time developing apps for Garmin wearables there is no doubt that the most common question I&rsquo;m asked by users is how to udpate the settings of an application.
+There are three ways to update your apps, I&rsquo;ll detail all of them below.
+1. Garmin Express   First thing&rsquo;s first, make sure you have downloaded and installed Garmin Express
+  Next, connect your watch with the appropriate USB cable and wait for it to show as being connected]]></description>
 </item><item>
-    <title>Lorem Ipsum - A Primer</title>
-    <link>https://peteravdjian.com/posts/2020/05/2020-05-07-lorem-ipsum/</link>
-    <pubDate>Thu, 07 May 2020 06:47:46 &#43;0100</pubDate>
+    <title>When Is a Git Repo Not a Git Repo?</title>
+    <link>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</link>
+    <pubDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/05/2020-05-07-lorem-ipsum/</guid>
-    <description><![CDATA[Lorem Ipsum What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&rsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.]]></description>
-</item><item>
-    <title>Rainy Days</title>
-    <link>https://peteravdjian.com/posts/2020/05/2020-05-07-rainy-days/</link>
-    <pubDate>Thu, 07 May 2020 06:16:35 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/05/2020-05-07-rainy-days/</guid>
-    <description><![CDATA[Rain Rain Go Away It’s raining, it’s pouring, your day feels really boring—and you&rsquo;re racking your brain for what to do on a rainy day.
-When the forecast is grim, whether it’s thunderstorms or a blizzard, cabin fever can set in fast. You can curl up with a great book or binge-watch an entire season of something, but, let’s face it, sometimes you want different, fun things to do at home.]]></description>
-</item><item>
-    <title>My First Post</title>
-    <link>https://peteravdjian.com/posts/2020/05/2020-05-06-my-first-post/</link>
-    <pubDate>Wed, 06 May 2020 06:11:21 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/05/2020-05-06-my-first-post/</guid>
-    <description><![CDATA[Hello World! ]]></description>
+    <guid>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</guid>
+    <description><![CDATA[I was working on a project recently and I noticed that my git gutter wasn&rsquo;t showing up in VS Code.
+Quick side note, for those that don&rsquo;t know, a git gutter, diff decorator or VCS gutter is a small element that typically shows up on the side of your code files to indicate a change between your local copy of the file and that which the version control system is tracking.]]></description>
 </item></channel>
 </rss>

@@ -2,19 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://peteravdjian.com/posts/2020/05/2020-05-08-lightgallery-test/</loc><lastmod>2020-05-08T08:39:55&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/</loc><lastmod>2020-05-08T08:39:55&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/posts/</loc><lastmod>2020-05-08T08:39:55&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/categories/</loc><lastmod>2020-05-07T06:47:46&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/categories/documentation/</loc><lastmod>2020-05-07T06:47:46&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/posts/2020/05/2020-05-07-lorem-ipsum/</loc><lastmod>2020-05-07T06:47:46&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/tags/sample/</loc><lastmod>2020-05-07T06:47:46&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/tags/</loc><lastmod>2020-05-07T06:47:46&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/pages/about/</loc><lastmod>2020-05-07T06:23:50&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/pages/</loc><lastmod>2020-05-07T06:23:50&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/tags/ideas/</loc><lastmod>2020-05-07T06:16:35&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/posts/2020/05/2020-05-07-rainy-days/</loc><lastmod>2020-05-07T06:16:35&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/categories/stay-home/</loc><lastmod>2020-05-07T06:16:35&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/tags/stay-at-home/</loc><lastmod>2020-05-07T06:16:35&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/categories/examples/</loc><lastmod>2020-05-06T06:11:21&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://peteravdjian.com/posts/2020/05/2020-05-06-my-first-post/</loc><lastmod>2020-05-06T06:11:21&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url></urlset>
+            <loc>https://peteravdjian.com/categories/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/ciq/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/categories/garmin/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/garmin/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/howto/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/posts/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/tips/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/git/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/categories/til/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/tags/vscode/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://peteravdjian.com/pages/about/</loc><lastmod>2020-05-07T06:23:50&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://peteravdjian.com/pages/</loc><lastmod>2020-05-07T06:23:50&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url></urlset>

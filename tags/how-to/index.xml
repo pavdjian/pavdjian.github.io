@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Garmin - Category - Peter Avdjian</title>
-        <link>https://peteravdjian.com/categories/garmin/</link>
-        <description>Garmin - Category - Peter Avdjian</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/categories/garmin/" rel="self" type="application/rss+xml" /><item>
+        <title>how-to - Tag - Peter Avdjian</title>
+        <link>https://peteravdjian.com/tags/how-to/</link>
+        <description>how-to - Tag - Peter Avdjian</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/tags/how-to/" rel="self" type="application/rss+xml" /><item>
     <title>How to Change Your Garmin App Settings</title>
     <link>https://peteravdjian.com/posts/2020/06/2020-06-04-how-to-change-your-garmin-app-settings/</link>
     <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>

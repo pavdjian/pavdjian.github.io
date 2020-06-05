@@ -22,7 +22,7 @@ for i in foo bar; do mkdir ~/goatspace/$i; git init ~/goatspace/$i; done
 
 {{< image src="/posts/images/2020/06/02/fresh_repos.png" >}}
 
-Right, we have our test repos, time to add them to VS Code as projects, I use the excellent extension [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager), so I opened up the extension settings and added links to my two newly initialised git repos.
+Right, we have our test repos, time to add them to VS Code as projects, I use the excellent extension [Project Manager](https://links.avdjian.com/vscprojectmanager), so I opened up the extension settings and added links to my two newly initialised git repos.
 
 ```
 [

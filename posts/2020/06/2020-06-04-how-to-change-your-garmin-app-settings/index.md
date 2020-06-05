@@ -33,7 +33,7 @@ There are three ways to update your apps, I'll detail all of them below.
 
   {{< image src="/posts/images/2020/06/04/connect2.jpg" >}}
 
-{{< admonition type=info title="Info" open=false >}}
+{{< admonition type=info title="Info - click to expand" open=false >}}
 It would be remiss of me not to mention this, if you want to edit the likes of data fields through the Garmin Connect App, you'll need to click on the `Activities, Apps and More` menu item instead of `Appearance`.
 
   {{< image src="/posts/images/2020/06/04/connect2.5.jpg" >}}
@@ -71,7 +71,7 @@ It would be remiss of me not to mention this, if you want to edit the likes of d
 * Select `Settings`
 
   {{< image src="/posts/images/2020/06/04/ciq4.jpg" >}}
-* Enjoy 🎉!
+* Enjoy 🎉
 
   {{< image src="/posts/images/2020/06/04/ciq5.jpg" >}}
 

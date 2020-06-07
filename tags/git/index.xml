@@ -5,10 +5,10 @@
         <description>git - Tag - Peter Avdjian</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>When Is a Git Repo Not a Git Repo?</title>
-    <link>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</link>
+    <link>https://peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</link>
     <pubDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/2020-06-02-when-is-a-git-repo-not-a-git-repo/</guid>
+    <guid>https://peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</guid>
     <description><![CDATA[I was working on a project recently and I noticed that my git gutter wasn&rsquo;t showing up in VS Code.
 Quick side note, for those that don&rsquo;t know, a git gutter, diff decorator or VCS gutter is a small element that typically shows up on the side of your code files to indicate a change between your local copy of the file and that which the version control system is tracking.]]></description>
 </item></channel>

@@ -3,9 +3,19 @@
         <title>Peter Avdjian</title>
         <link>https://peteravdjian.com/</link>
         <description>This is My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 07 Jun 2020 09:26:03 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 10 Jun 2020 09:45:01 &#43;0100</lastBuildDate>
             <atom:link href="https://peteravdjian.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>GIMP Colour Exchange</title>
+    <link>https://peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</link>
+    <pubDate>Wed, 10 Jun 2020 09:45:01 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</guid>
+    <description><![CDATA[Jibber Jabber Only want instructions, skip the jibber jabber&hellip;
+A friend recently asked for some advice regarding some colour combinations. Below is an example of what he showed us
+ I gave my thoughts, namely that light text on the light background wasn&rsquo;t a very easy to read combination and I suggested that maybe
+Quote  You could do white or black text and get that &ldquo;popping&rdquo; effect on all colours.]]></description>
+</item><item>
     <title>How to Ask Questions</title>
     <link>https://peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</link>
     <pubDate>Sun, 07 Jun 2020 09:26:03 &#43;0100</pubDate>

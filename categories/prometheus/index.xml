@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Prometheus - Category - Peter Avdjian</title>
-        <link>https://peteravdjian.com/categories/prometheus/</link>
+        <link>https://www.peteravdjian.com/categories/prometheus/</link>
         <description>Prometheus - Category - Peter Avdjian</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/categories/prometheus/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/categories/prometheus/" rel="self" type="application/rss+xml" /><item>
     <title>Prometheus Label Bookmarklet</title>
-    <link>https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
     <pubDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</guid>
     <description><![CDATA[One of the most recent projects I&rsquo;ve been involved with at work has been the exploration of Prometheus as a metrics and monitoring tool. I expect as I spend more time with the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.
 Today, however, is not one of those posts. Instead, I wanted to show off a few lines of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs.]]></description>
 </item></channel>

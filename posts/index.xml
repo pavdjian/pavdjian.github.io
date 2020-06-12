@@ -1,49 +1,49 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>All Posts - Peter Avdjian</title>
-        <link>https://peteravdjian.com/posts/</link>
+        <link>https://www.peteravdjian.com/posts/</link>
         <description>All Posts | Peter Avdjian</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</lastBuildDate><atom:link href="https://peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Prometheus Label Bookmarklet</title>
-    <link>https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
     <pubDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</guid>
     <description><![CDATA[One of the most recent projects I&rsquo;ve been involved with at work has been the exploration of Prometheus as a metrics and monitoring tool. I expect as I spend more time with the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.
 Today, however, is not one of those posts. Instead, I wanted to show off a few lines of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs.]]></description>
 </item><item>
     <title>GIMP Colour Exchange</title>
-    <link>https://peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</link>
     <pubDate>Wed, 10 Jun 2020 09:45:01 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</guid>
     <description><![CDATA[Jibber Jabber Only want instructions, skip the jibber jabber&hellip;
 A friend recently asked for some advice regarding some colour combinations. Below is an example of what he showed us
  I gave my thoughts, namely that light text on the light background wasn&rsquo;t a very easy to read combination and I suggested that maybe
 Quote  You could do white or black text and get that &ldquo;popping&rdquo; effect on all colours.]]></description>
 </item><item>
     <title>How to Ask Questions</title>
-    <link>https://peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</link>
     <pubDate>Sun, 07 Jun 2020 09:26:03 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</guid>
     <description><![CDATA[Disclaimer  The below is largely taken from a similar document used at work, which itself is adapted from How To Ask Questions The Smart Way   Don&rsquo;t ask to ask Rather than asking if anyone is available to help with a problem or if anyone is knowledgeable in a certain area, state your question. Someone may not volunteer as an expert in a certain area but may still be able to help you once they see your question.]]></description>
 </item><item>
     <title>How to Change Your Garmin App Settings</title>
-    <link>https://peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</link>
     <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</guid>
     <description><![CDATA[In my time developing apps for Garmin wearables there is no doubt that the most common question I&rsquo;m asked by users is how to update the settings of an application.
 There are three ways to update your apps, I&rsquo;ll detail all of them below.
 1. Garmin Express   First thing&rsquo;s first, make sure you have downloaded and installed Garmin Express
   Next, connect your watch with the appropriate USB cable and wait for it to show as being connected]]></description>
 </item><item>
     <title>When Is a Git Repo Not a Git Repo?</title>
-    <link>https://peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</link>
+    <link>https://www.peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</link>
     <pubDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</pubDate>
     <author>Author</author>
-    <guid>https://peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</guid>
+    <guid>https://www.peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</guid>
     <description><![CDATA[I was working on a project recently and I noticed that my git gutter wasn&rsquo;t showing up in VS Code.
 Quick side note, for those that don&rsquo;t know, a git gutter, diff decorator or VCS gutter is a small element that typically shows up on the side of your code files to indicate a change between your local copy of the file and that which the version control system is tracking.]]></description>
 </item></channel>

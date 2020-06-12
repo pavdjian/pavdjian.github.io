@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Prometheus Label Bookmarklet - Peter Avdjian</title><meta name="Description" content="This is My New Hugo Site"><meta property="og:title" content="Prometheus Label Bookmarklet" />
+<meta property="og:description" content="One of the most recent projects I&rsquo;ve been involved with at work has been the exploration of Prometheus as a metrics and monitoring tool. I expect as I spend more time with the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.
+Today, however, is not one of those posts. Instead, I wanted to show off a few lines of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" />
+<meta property="article:published_time" content="2020-06-12T09:39:43+01:00" />
+<meta property="article:modified_time" content="2020-06-12T09:39:43+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prometheus Label Bookmarklet"/>
+<meta name="twitter:description" content="One of the most recent projects I&rsquo;ve been involved with at work has been the exploration of Prometheus as a metrics and monitoring tool. I expect as I spend more time with the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.
+Today, however, is not one of those posts. Instead, I wanted to show off a few lines of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs."/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" /><link rel="prev" href="https://peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Prometheus Label Bookmarklet",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/peteravdjian.com\/posts\/2020\/06\/12\/prometheus-label-bookmarklet\/"
+        },"genre": "posts","keywords": "prometheus, metrics, monitoring","wordcount":  376 ,
+        "url": "https:\/\/peteravdjian.com\/posts\/2020\/06\/12\/prometheus-label-bookmarklet\/","datePublished": "2020-06-12T09:39:43+01:00","dateModified": "2020-06-12T09:39:43+01:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Peter Avdjian"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Peter Avdjian"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Prometheus Label Bookmarklet</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/prometheus/"><i class="far fa-folder fa-fw"></i>Prometheus</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-12">2020-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;376 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="content" id="content"><p>One of the most recent projects I&rsquo;ve been involved with at work has been the exploration
+of Prometheus as a metrics and monitoring tool. I expect as I spend more time with
+the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.</p>
+<p>Today, however, is not one of those posts. Instead, I wanted to show off a few lines
+of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs.
+Fair warning, I&rsquo;m not a front end developer, so brace yourselves while I introduce you
+to the hammer I used to solve this problem.</p>
+<p>Prometheus&rsquo; target page allows you to see all labels associated with the metrics
+you scrape before and after relabelling, seeing the &ldquo;before&rdquo; labels is actually quite useful
+as it can help:</p>
+<ul>
+<li>Make sense of where exactly the metrics are coming from</li>
+<li>Dictate the configuration of scrape configurations</li>
+<li>Direct how relabel configurations are set up</li>
+<li>Ensure consistency between scrape configurations and queries</li>
+</ul>
+<p>However there is one glaring omission with the targets page, the &ldquo;before&rdquo; labels are only visible on mouseover.
+This makes it:</p>
+<ul>
+<li>Impossible to copy and paste &ldquo;before&rdquo; labels if you wish to discuss them</li>
+<li>Very difficult to view the entire list of &ldquo;before&rdquo; labels when it spans below the fold</li>
+<li>So that comparison between &ldquo;before&rdquo; and &ldquo;after&rdquo; labels is a test of patience</li>
+</ul>
+<a class="lightgallery" href="/posts/images/2020/06/12/tooltip.png" title="/posts/images/2020/06/12/tooltip.png" data-thumbnail="/posts/images/2020/06/12/tooltip.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/12/tooltip.png"
+            data-srcset="/posts/images/2020/06/12/tooltip.png, /posts/images/2020/06/12/tooltip.png 1.5x, /posts/images/2020/06/12/tooltip.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/12/tooltip.png" />
+    </a>
+<p>I wrote a small bookmarklet, which you can activate when on your Prometheus targets page which will allow you
+to now click on a label to show the &ldquo;before&rdquo; labels as a popover rather than a tooltip.
+The end result looks something like this</p>
+<a class="lightgallery" href="/posts/images/2020/06/12/popover.png" title="/posts/images/2020/06/12/popover.png" data-thumbnail="/posts/images/2020/06/12/popover.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/12/popover.png"
+            data-srcset="/posts/images/2020/06/12/popover.png, /posts/images/2020/06/12/popover.png 1.5x, /posts/images/2020/06/12/popover.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/12/popover.png" />
+    </a>
+<p>Compared to the default tooltip action, the popover remains even after your mouse moves away from the labels,
+which means you can now copy and paste, view labels side by side, dock your screen etc&hellip; without losing the &ldquo;before&rdquo;
+labels.</p>
+<p>Simply create a new bookmark in your browser and replace the <code>URL</code> field with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">javascript:for(var elements=document.getElementsByClassName(&#34;badge badge-primary&#34;),myFunction=function(){$(&#39;[data-toggle=&#34;tooltip&#34;]&#39;).popover(),setTimeout(function(){$(&#34;.popover&#34;).css({&#34;max-width&#34;:&#34;900px&#34;})},100)},i=0;i&lt;elements.length;i++)elements[i].addEventListener(&#34;click&#34;,myFunction,!1);
+</code></pre></td></tr></table>
+</div>
+</div><p>It should look something like this</p>
+<a class="lightgallery" href="/posts/images/2020/06/12/bookmarklet.png" title="/posts/images/2020/06/12/bookmarklet.png" data-thumbnail="/posts/images/2020/06/12/bookmarklet.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/12/bookmarklet.png"
+            data-srcset="/posts/images/2020/06/12/bookmarklet.png, /posts/images/2020/06/12/bookmarklet.png 1.5x, /posts/images/2020/06/12/bookmarklet.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/12/bookmarklet.png" />
+    </a>
+<p>Whenever you wish to make use of popovers rather than tooltips, click the bookmarketlet and then a label of
+your choosing, all labels on the targets page are clickable entities which can create a persistant popover.</p>
+<p>And with that, thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2020/06/12/prometheus-label-bookmarklet/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" data-title="Prometheus Label Bookmarklet" data-hashtags="prometheus,metrics,monitoring"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" data-hashtag="prometheus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" data-title="Prometheus Label Bookmarklet" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" data-title="Prometheus Label Bookmarklet"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" data-title="Prometheus Label Bookmarklet"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/prometheus/">prometheus</a>,&nbsp;<a href="/tags/metrics/">metrics</a>,&nbsp;<a href="/tags/monitoring/">monitoring</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/06/10/gimp-colour-exchange/" class="prev" rel="prev" title="GIMP Colour Exchange"><i class="fas fa-angle-left fa-fw"></i>GIMP Colour Exchange</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":20},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

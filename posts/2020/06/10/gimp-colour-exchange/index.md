@@ -22,7 +22,7 @@ The reply wasn't exactly what I expected...
 we did do the design in black and white only first so i have a black background, white text version i can upload
 {{< /admonition >}}
 
-Brief aside, communication is hard at the best of time and when done via text can be even more difficult.
+Brief aside, communication is hard at the best of times and when done via text can be even more difficult.
 
 {{< image src="/posts/images/2020/06/10/zero_context.png" >}}
 

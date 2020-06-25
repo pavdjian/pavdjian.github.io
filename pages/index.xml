@@ -6,7 +6,7 @@
     <description>Recent content in Pages on Personal Blog, Garmin Apps and More</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2020 06:23:50 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 06:23:50 +0100</lastBuildDate>
     
 	<atom:link href="https://www.peteravdjian.com/pages/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,11 @@
     <item>
       <title>About</title>
       <link>https://www.peteravdjian.com/pages/about/</link>
-      <pubDate>Thu, 07 May 2020 06:23:50 +0100</pubDate>
+      <pubDate>Sun, 07 Jun 2020 06:23:50 +0100</pubDate>
       
       <guid>https://www.peteravdjian.com/pages/about/</guid>
-      <description>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &amp;lsquo;Content here, content here&amp;rsquo;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &amp;lsquo;lorem ipsum&amp;rsquo; will uncover many web sites still in their infancy.</description>
+      <description>Hi, I&amp;rsquo;m Peter. I work as a remote infrastructure engineer for Paperless Post. When I&amp;rsquo;m not working, I can be found running, biking and swimming with my Garmin in tow.
+I&amp;rsquo;m also an expert at percussive maintenance.</description>
     </item>
     
   </channel>

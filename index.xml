@@ -3,9 +3,18 @@
         <title>Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/</link>
         <description>Personal blog, Garmin apps and more</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Jun 2020 10:39:13 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Jul 2020 11:16:00 &#43;0100</lastBuildDate>
             <atom:link href="https://www.peteravdjian.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>SSH Too Many Authentication Failures</title>
+    <link>https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/</link>
+    <pubDate>Wed, 01 Jul 2020 11:16:00 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/</guid>
+    <description><![CDATA[Recently I have been working on our self-managed Kubernetes cluster, specifically tasked with exposing the etcd metrics endpoint to our worker nodes so that our Prometheus server can retrieve the appropriate metrics. While testing some changes to the tectonic installer, I hit an issue I&rsquo;ve never seen before
+Received disconnect from XXX.XXX.XXX.XXX port 22:2: Too many authentication failures
+Since my task had me inspecting both control-plane and etcd instances to ensure their unit files were being correctly executed, and the only way I could SSH onto an etcd node was via the control-plane, it was necessary to setup agent forwarding to ssh from the control-plane to the etcd node.]]></description>
+</item><item>
     <title>Prometheus Label Bookmarklet Rabbit Hole</title>
     <link>https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/</link>
     <pubDate>Sun, 28 Jun 2020 10:39:13 &#43;0100</pubDate>

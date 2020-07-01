@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>SSH Too Many Authentication Failures - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="SSH Too Many Authentication Failures" />
+<meta property="og:description" content="Recently I have been working on our self-managed Kubernetes cluster, specifically tasked with exposing the etcd metrics endpoint to our worker nodes so that our Prometheus server can retrieve the appropriate metrics. While testing some changes to the tectonic installer, I hit an issue I&rsquo;ve never seen before
+Received disconnect from XXX.XXX.XXX.XXX port 22:2: Too many authentication failures
+Since my task had me inspecting both control-plane and etcd instances to ensure their unit files were being correctly executed, and the only way I could SSH onto an etcd node was via the control-plane, it was necessary to setup agent forwarding to ssh from the control-plane to the etcd node." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" />
+<meta property="article:published_time" content="2020-07-01T11:16:00+01:00" />
+<meta property="article:modified_time" content="2020-07-01T11:16:00+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSH Too Many Authentication Failures"/>
+<meta name="twitter:description" content="Recently I have been working on our self-managed Kubernetes cluster, specifically tasked with exposing the etcd metrics endpoint to our worker nodes so that our Prometheus server can retrieve the appropriate metrics. While testing some changes to the tectonic installer, I hit an issue I&rsquo;ve never seen before
+Received disconnect from XXX.XXX.XXX.XXX port 22:2: Too many authentication failures
+Since my task had me inspecting both control-plane and etcd instances to ensure their unit files were being correctly executed, and the only way I could SSH onto an etcd node was via the control-plane, it was necessary to setup agent forwarding to ssh from the control-plane to the etcd node."/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" /><link rel="prev" href="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SSH Too Many Authentication Failures",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.peteravdjian.com\/posts\/2020\/07\/01\/ssh-too-many-authentication-failures\/"
+        },"genre": "posts","keywords": "ssh, ssh-agent, ssh-add","wordcount":  663 ,
+        "url": "https:\/\/www.peteravdjian.com\/posts\/2020\/07\/01\/ssh-too-many-authentication-failures\/","datePublished": "2020-07-01T11:16:00+01:00","dateModified": "2020-07-01T11:16:00+01:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">SSH Too Many Authentication Failures</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/til/"><i class="far fa-folder fa-fw"></i>TIL</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-01">2020-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;663 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="content" id="content"><p>Recently I have been working on our self-managed Kubernetes cluster, specifically tasked with exposing the etcd metrics
+endpoint to our worker nodes so that our Prometheus server can retrieve the appropriate metrics. While testing some changes
+to the tectonic installer, I hit an issue I&rsquo;ve never seen before</p>
+<p><code>Received disconnect from XXX.XXX.XXX.XXX port 22:2: Too many authentication failures</code></p>
+<p>Since my task had me inspecting both control-plane and etcd instances to ensure their unit files were being correctly executed,
+and the only way I could SSH onto an etcd node was via the control-plane, it was necessary to setup agent forwarding
+to ssh from the control-plane to the etcd node. Doing so normally looks something like this:</p>
+<ul>
+<li>Set correct permissions on your private key</li>
+<li>Find control-plane and etcd node IP addresses</li>
+<li>SSH to control-plane as the <code>core</code> user (we&rsquo;re using CoreOS) making sure to forward your agent <code>-A</code></li>
+<li>Once on the control-plane, SSH onto the etcd node, again as the <code>core</code> user</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:20:04 ------------------------------------------------------------
+» chmod 0600 generated/private-key.pem
+
+15:20:09 ------------------------------------------------------------
+» ssh-add generated/private-key.pem
+Identity added: generated/private-key.pem (generated/private-key.pem)
+
+15:20:43 ------------------------------------------------------------
+» ssh core@10.128.10.195 -i generated/private-key.pem -A
+Received disconnect from 10.128.10.195 port 22:2: Too many authentication failures
+Disconnected from 10.128.10.195 port 22
+</code></pre></td></tr></table>
+</div>
+</div><p>What?! Too many authentication failures?</p>
+<p>At first I thought that maybe the control-plane node was still coming up, so I waited a little longer&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:21:32 ------------------------------------------------------------
+» ssh core@10.128.10.195 -i generated/private-key.pem -A
+Received disconnect from 10.128.10.195 port 22:2: Too many authentication failures
+Disconnected from 10.128.10.195 port 22
+</code></pre></td></tr></table>
+</div>
+</div><p>That didn&rsquo;t seem to work, so I decided to check what was visible to my <code>ssh-agent</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:23:01 ------------------------------------------------------------
+» ssh-add -L
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+ssh-rsa AAAAB3N... generated/private-key.pem
+</code></pre></td></tr></table>
+</div>
+</div><p>I&rsquo;ve been bringing up and taking down these clusters quite a bit, each time adding a new key with the same name
+to my <code>ssh-agent</code>, could the agent be going through each key and trying them in turn thereby failing before it reaches
+the right one?</p>
+<p>I know the <code>ssh-agent</code> will &ldquo;forget&rdquo; my keys on reboot, but I&rsquo;ve not rebooted in a while&hellip;Guess it&rsquo;s time to empty out
+the listed identities</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:23:05 ------------------------------------------------------------
+» ssh-add -h
+ssh-add: illegal option -- h
+usage: ssh-add [options] [file ...]
+Options:
+  -l          List fingerprints of all identities.
+  -E hash     Specify hash algorithm used for fingerprints.
+  -L          List public key parameters of all identities.
+  -k          Load only keys and not certificates.
+  -c          Require confirmation to sign using identities
+  -m minleft  Maxsign is only changed if less than minleft are left (for XMSS)
+  -M maxsign  Maximum number of signatures allowed (for XMSS)
+  -t life     Set lifetime (in seconds) when adding identities.
+  -d          Delete identity.
+  -D          Delete all identities.
+  -x          Lock agent.
+  -X          Unlock agent.
+  -s pkcs11   Add keys from PKCS#11 provider.
+  -e pkcs11   Remove keys provided by PKCS#11 provider.
+  -T pubkey   Test if ssh-agent can access matching private key.
+  -q          Be quiet after a successful operation.
+  -A          Add all identities stored in your keychain.
+  -K          Store passphrases in your keychain.
+              With -d, remove passphrases from your keychain.
+</code></pre></td></tr></table>
+</div>
+</div><p>Ok, so the <code>-h</code> flag isn&rsquo;t valid, but I found what I needed <code>-D Delete all identities.</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:23:17 ------------------------------------------------------------
+» ssh-add -D
+All identities removed.
+</code></pre></td></tr></table>
+</div>
+</div><p>Right, let&rsquo;s try this again</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">15:23:22 ------------------------------------------------------------
+» ssh-add generated/private-key.pem
+Identity added: generated/private-key.pem (generated/private-key.pem)
+
+15:23:26 ------------------------------------------------------------
+» ssh core@10.128.10.195 -i generated/private-key.pem -A
+Container Linux by CoreOS stable (2512.3.0)
+
+CoreOS Container Linux is no longer maintained or updated.
+Migrate your workloads to another operating system!
+For more info, see https://coreos.com/os/eol/
+
+Update Strategy: No Reboots
+core@ip-10-128-10-195 ~ $
+</code></pre></td></tr></table>
+</div>
+</div><p>Success 🥳
+And with that, thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-07-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2020/07/01/ssh-too-many-authentication-failures/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" data-title="SSH Too Many Authentication Failures" data-hashtags="ssh,ssh-agent,ssh-add"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" data-hashtag="ssh"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" data-title="SSH Too Many Authentication Failures" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" data-title="SSH Too Many Authentication Failures"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/" data-title="SSH Too Many Authentication Failures"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">ssh</a>,&nbsp;<a href="/tags/ssh-agent/">ssh-agent</a>,&nbsp;<a href="/tags/ssh-add/">ssh-add</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" class="prev" rel="prev" title="Prometheus Label Bookmarklet Rabbit Hole"><i class="fas fa-angle-left fa-fw"></i>Prometheus Label Bookmarklet Rabbit Hole</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

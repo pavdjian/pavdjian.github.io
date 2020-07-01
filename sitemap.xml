@@ -2,15 +2,20 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/ssh/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/ssh-add/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/ssh-agent/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/til/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/metrics/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/monitoring/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/prometheus/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/prometheus/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2020-06-28T10:39:13&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</loc><lastmod>2020-06-12T09:39:43&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/gimp/</loc><lastmod>2020-06-10T09:45:01&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</loc><lastmod>2020-06-10T09:45:01&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url>
@@ -25,6 +30,5 @@
             <loc>https://www.peteravdjian.com/tags/garmin/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</loc><lastmod>2020-06-04T07:26:32&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/git/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://www.peteravdjian.com/categories/til/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/vscode/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</loc><lastmod>2020-06-02T23:12:14&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url></urlset>

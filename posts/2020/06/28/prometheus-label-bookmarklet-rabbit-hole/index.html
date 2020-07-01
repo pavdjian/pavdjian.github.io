@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Prometheus Label Bookmarklet Rabbit Hole - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="Prometheus Label Bookmarklet Rabbit Hole" />
+<meta property="og:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
+Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" />
+<meta property="article:published_time" content="2020-06-28T10:39:13+01:00" />
+<meta property="article:modified_time" content="2020-06-28T10:39:13+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prometheus Label Bookmarklet Rabbit Hole"/>
+<meta name="twitter:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
+Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding."/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" /><link rel="prev" href="https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Prometheus Label Bookmarklet Rabbit Hole",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.peteravdjian.com\/posts\/2020\/06\/28\/prometheus-label-bookmarklet-rabbit-hole\/"
+        },"genre": "posts","keywords": "prometheus, metrics, monitoring","wordcount":  942 ,
+        "url": "https:\/\/www.peteravdjian.com\/posts\/2020\/06\/28\/prometheus-label-bookmarklet-rabbit-hole\/","datePublished": "2020-06-28T10:39:13+01:00","dateModified": "2020-06-28T10:39:13+01:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Prometheus Label Bookmarklet Rabbit Hole</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/prometheus/"><i class="far fa-folder fa-fw"></i>Prometheus</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-28">2020-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;942 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="content" id="content"><p>Following on <a href="https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" rel="">from my previous post</a> where I showed the bookmarklet I
+created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived
+at the point of the bookmarklet.</p>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Warning<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to
+showcase my approach to solving a problem rather than my prowess in making browsers do my bidding.</div>
+        </div>
+    </div>
+<p>Quick summary of the problem, I saw the &ldquo;before&rdquo; labels as a means of deciding what relabel configurations I wanted
+to introduce into each scrape configuration I was creating, however the &ldquo;before&rdquo; labels were only visible during
+a mouseover event which was frustrating me no end.</p>
+<p>Digging into the source code to understand how the mouseover tooltip is generated, I noticed that the list of &ldquo;before&rdquo;
+labels was not a dynamic page element, the content of the tooltip is embedded within the pages&rsquo; HTML, so I knew I
+just needed a way to get to the underlying HTML.</p>
+<p>Initially this was achieved using the inspect element tool, this was ok if a bit clunky.</p>
+<a class="lightgallery" href="/posts/images/2020/06/28/before_labels.png" title="/posts/images/2020/06/28/before_labels.png" data-thumbnail="/posts/images/2020/06/28/before_labels.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/28/before_labels.png"
+            data-srcset="/posts/images/2020/06/28/before_labels.png, /posts/images/2020/06/28/before_labels.png 1.5x, /posts/images/2020/06/28/before_labels.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/28/before_labels.png" />
+    </a>
+<p>While inspecting the list of labels I noticed a snippet of code <code>data-toggle=&quot;tooltip&quot;</code>, surely we could change <code>tooltip</code>
+for something else.</p>
+<p>Chucking that snippet into Google, the search results all pointed to something called Bootstrap.
+I knew it was a javascript library, so I went over to the <a href="https://getbootstrap.com/docs/4.1/components/tooltips/" target="_blank" rel="noopener noreffer">Bootstrap documentation</a>
+to find out more.</p>
+<p>It just so happens that Bootstrap can provide a number of components to your page, I didn&rsquo;t really know what I was
+after at the time so there was a bit of trial and error involved in finding the component with the behaviour that would
+suit my use case, but eventually I came across Popovers and they seemed to do what I wanted.
+The example code provided in the documentation also looked pretty similar to the tooltip code, so it felt like a pretty
+good replacement.</p>
+<p>Tooltips</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[data-toggle=&#34;tooltip&#34;]&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Popovers</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[data-toggle=&#34;popover&#34;]&#39;</span><span class="p">).</span><span class="nx">popover</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>I assumed that since the tooltip functionality worked on labels, the jQuery selector for all <code>'[data-toggle=&quot;tooltip&quot;]'</code> was working, but no harm in verifying</p>
+<a class="lightgallery" href="/posts/images/2020/06/28/jQuery_selector.png" title="/posts/images/2020/06/28/jQuery_selector.png" data-thumbnail="/posts/images/2020/06/28/jQuery_selector.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/28/jQuery_selector.png"
+            data-srcset="/posts/images/2020/06/28/jQuery_selector.png, /posts/images/2020/06/28/jQuery_selector.png 1.5x, /posts/images/2020/06/28/jQuery_selector.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/28/jQuery_selector.png" />
+    </a>
+<p>Ok great, so can we change the <code>tooltip()</code> method for <code>popover()</code> method?</p>
+<p><code>$('[data-toggle=&quot;tooltip&quot;]').popover()</code></p>
+<a class="lightgallery" href="/posts/images/2020/06/28/jQuery_replacement.png" title="/posts/images/2020/06/28/jQuery_replacement.png" data-thumbnail="/posts/images/2020/06/28/jQuery_replacement.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/28/jQuery_replacement.png"
+            data-srcset="/posts/images/2020/06/28/jQuery_replacement.png, /posts/images/2020/06/28/jQuery_replacement.png 1.5x, /posts/images/2020/06/28/jQuery_replacement.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/28/jQuery_replacement.png" />
+    </a>
+<p>That seemed to work nicely and I was quite content to stop there initially.
+However, as I started to make use of these popovers I quickly noticed that the default popover width wasn&rsquo;t large enough
+and made reading label lists quite difficult as they spanned multiple lines a lot of the time.</p>
+<a class="lightgallery" href="/posts/images/2020/06/28/popover_size.png" title="/posts/images/2020/06/28/popover_size.png" data-thumbnail="/posts/images/2020/06/28/popover_size.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/28/popover_size.png"
+            data-srcset="/posts/images/2020/06/28/popover_size.png, /posts/images/2020/06/28/popover_size.png 1.5x, /posts/images/2020/06/28/popover_size.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/28/popover_size.png" />
+    </a>
+<p>I noticed that when the popover is created, a new <code>div</code> is inserted into the DOM with a class of
+<code>class=&quot;popover fade bs-popover-right show&quot;</code>, inspecting this element in the console I also noticed there was a
+<code>max-width</code> attribute defaulting to <code>276px</code>. What if I were to change that value?</p>
+<p><code>$(&quot;.popover&quot;).css({&quot;max-width&quot;:&quot;700px&quot;})</code></p>
+<a class="lightgallery" href="/posts/images/2020/06/28/popover_class.png" title="/posts/images/2020/06/28/popover_class.png" data-thumbnail="/posts/images/2020/06/28/popover_class.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/06/28/popover_class.png"
+            data-srcset="/posts/images/2020/06/28/popover_class.png, /posts/images/2020/06/28/popover_class.png 1.5x, /posts/images/2020/06/28/popover_class.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/06/28/popover_class.png" />
+    </a>
+<p>Perfect, well almost&hellip;See the problem is, if that DOM element doesn&rsquo;t exist, the CSS change can&rsquo;t take effect.
+In practice this meant every time I opened up a new popover, I&rsquo;d have to re-run the CSS change.</p>
+<p>This could probably suffice for personal usage, it didn&rsquo;t have to be perfect, but I&rsquo;ve come this far and since
+I saw some use in what I was doing I thought to take it a step further and create something for folk across the
+organisation to use without having to copy and paste snippets every time they loaded the targets page.</p>
+<p>First thing&rsquo;s first, I had to find all the labels on the page and add an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreffer">EventListener</a>
+to them.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var elements = document.getElementsByClassName(&#34;badge badge-primary&#34;);
+
+for (var i = 0; i &lt; elements.length; i++) {
+    elements[i].addEventListener(&#39;click&#39;, myFunction, false);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Next up was to package the commands I was running manually into a function which would be called each time the
+<code>addEventListener</code> is triggered.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var elements = document.getElementsByClassName(&#34;badge badge-primary&#34;);
+
+var myFunction = function(){
+    $(&#39;[data-toggle=&#34;tooltip&#34;]&#39;).popover();
+    $(&#34;.popover&#34;).css({&#34;max-width&#34;:&#34;700px&#34;};
+};
+
+for (var i = 0; i &lt; elements.length; i++) {
+    elements[i].addEventListener(&#39;click&#39;, myFunction, false);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>For some reason, this didn&rsquo;t work as I expected, what I noticed was that on the initial click, the popover would stay at
+the smaller <code>276px</code> size, and subsequent popovers would be sized correctly at <code>700px</code>.
+Thinking through why this might be happening I remembered that the popover element is inserted into the DOM when created,
+when <code>myFunction</code> was called on the initial click the jQuery library wasn&rsquo;t able to find any elements with a
+<code>.popover</code> class.</p>
+<p>To combat this I added a slight delay of 100ms before editing CSS attributes of the popover using the
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout" target="_blank" rel="noopener noreffer"><code>setTimeout()</code> method</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var elements = document.getElementsByClassName(&#34;badge badge-primary&#34;);
+
+var myFunction = function(){
+    $(&#39;[data-toggle=&#34;tooltip&#34;]&#39;).popover();
+    setTimeout(function(){$(&#34;.popover&#34;).css({&#34;max-width&#34;:&#34;700px&#34;})}, 100);
+};
+
+for (var i = 0; i &lt; elements.length; i++) {
+    elements[i].addEventListener(&#39;click&#39;, myFunction, false);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>At this point I had a small script that did what was needed, so it was time to package it into a bookmarklet so it could
+be saved and used on the appropriate page. I can&rsquo;t remember what tool I used to achieve this, but a
+<a href="https://links.avdjian.com/bookmarlet-tools" target="_blank" rel="noopener noreffer">quick search</a> provides more than enough tools which achieve the same result.</p>
+<p>There probably is a bit of cleanup and best practice I should make sure I am following, maybe even add some defensive
+code so that the bookmarklet would only run the script on designated pages, but since the current user count is 1&hellip;
+it&rsquo;s probably a little much at this point in time 😄</p>
+<p>And with that, thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" data-title="Prometheus Label Bookmarklet Rabbit Hole" data-hashtags="prometheus,metrics,monitoring"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" data-hashtag="prometheus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" data-title="Prometheus Label Bookmarklet Rabbit Hole" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" data-title="Prometheus Label Bookmarklet Rabbit Hole"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" data-title="Prometheus Label Bookmarklet Rabbit Hole"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/prometheus/">prometheus</a>,&nbsp;<a href="/tags/metrics/">metrics</a>,&nbsp;<a href="/tags/monitoring/">monitoring</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/06/12/prometheus-label-bookmarklet/" class="prev" rel="prev" title="Prometheus Label Bookmarklet"><i class="fas fa-angle-left fa-fw"></i>Prometheus Label Bookmarklet</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":20},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

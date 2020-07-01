@@ -3,7 +3,15 @@
         <title>Prometheus - Category - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/categories/prometheus/</link>
         <description>Prometheus - Category - Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/categories/prometheus/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Jun 2020 10:39:13 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/categories/prometheus/" rel="self" type="application/rss+xml" /><item>
+    <title>Prometheus Label Bookmarklet Rabbit Hole</title>
+    <link>https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/</link>
+    <pubDate>Sun, 28 Jun 2020 10:39:13 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/</guid>
+    <description><![CDATA[Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
+Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding.]]></description>
+</item><item>
     <title>Prometheus Label Bookmarklet</title>
     <link>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
     <pubDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</pubDate>

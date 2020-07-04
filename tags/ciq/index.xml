@@ -3,7 +3,14 @@
         <title>ciq - Tag - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/tags/ciq/</link>
         <description>ciq - Tag - Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/tags/ciq/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 04 Jul 2020 12:17:22 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/tags/ciq/" rel="self" type="application/rss+xml" /><item>
+    <title>How to Debug Garmin Crash Reports</title>
+    <link>https://www.peteravdjian.com/posts/2020/07/04/how-to-debugging-garmin-crash-reports/</link>
+    <pubDate>Sat, 04 Jul 2020 12:17:22 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/07/04/how-to-debugging-garmin-crash-reports/</guid>
+    <description><![CDATA[There&rsquo;s a problem. Fix it. Writing software usually comes with an element of support, this could be due to a of a lack of understanding on the user&rsquo;s part, maybe a feature is being used in a way it wasn&rsquo;t thought of during development, a user might want something specific, the developer could have introduced a bug etc etc&hellip; Regardless of the type of support request, developers need to collect the right information to be able to act appropriately.]]></description>
+</item><item>
     <title>How to Change Your Garmin App Settings</title>
     <link>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</link>
     <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>

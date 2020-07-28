@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>How to Add Better Logging to Bash Scripts - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="How to Add Better Logging to Bash Scripts" />
+<meta property="og:description" content="If I were to look for a site reliability / infrastructure / devops engineer job one of the skills that will likely be mentioned across a large number of specs would be &ldquo;scripting&rdquo;. Next to it, you&rsquo;ll likely see the word &ldquo;bash&rdquo;.
+It is probably the scripting language that I&rsquo;ve used most frequently, both professionally and personally, in that time I&rsquo;ve found a few ways to make my scripts a little more robust and user friendly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" />
+<meta property="article:published_time" content="2020-07-25T10:54:30+01:00" />
+<meta property="article:modified_time" content="2020-07-25T10:54:30+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Add Better Logging to Bash Scripts"/>
+<meta name="twitter:description" content="If I were to look for a site reliability / infrastructure / devops engineer job one of the skills that will likely be mentioned across a large number of specs would be &ldquo;scripting&rdquo;. Next to it, you&rsquo;ll likely see the word &ldquo;bash&rdquo;.
+It is probably the scripting language that I&rsquo;ve used most frequently, both professionally and personally, in that time I&rsquo;ve found a few ways to make my scripts a little more robust and user friendly."/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" /><link rel="prev" href="https://www.peteravdjian.com/posts/2020/07/04/how-to-debugging-garmin-crash-reports/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Add Better Logging to Bash Scripts",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.peteravdjian.com\/posts\/2020\/07\/25\/how-to-add-better-logging-to-bash-scripts\/"
+        },"genre": "posts","keywords": "shell, UX, logging, bash","wordcount":  471 ,
+        "url": "https:\/\/www.peteravdjian.com\/posts\/2020\/07\/25\/how-to-add-better-logging-to-bash-scripts\/","datePublished": "2020-07-25T10:54:30+01:00","dateModified": "2020-07-25T10:54:30+01:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">How to Add Better Logging to Bash Scripts</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/how-to/"><i class="far fa-folder fa-fw"></i>How-To</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-25">2020-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;471 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#whats-a-bash-script">What&rsquo;s a Bash Script?</a></li>
+        <li><a href="#better-logging">Better Logging</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>If I were to look for a site reliability / infrastructure / devops engineer job
+one of the skills that will likely be mentioned across a large number of specs
+would be &ldquo;scripting&rdquo;. Next to it, you&rsquo;ll likely see the word &ldquo;bash&rdquo;.</p>
+<p>It is probably the scripting language that I&rsquo;ve used most frequently, both
+professionally and personally, in that time I&rsquo;ve found a few ways to make my scripts
+a little more robust and user friendly.</p>
+<h3 id="whats-a-bash-script">What&rsquo;s a Bash Script?</h3>
+<p>Before we go any further, we should tackle the question of what a bash script actually is.
+Now, there is a lot of <a href="https://links.avdjian.com/shell-scripts" target="_blank" rel="noopener noreffer">documentation</a> out
+there which will explain things better than I could, but for the purposes of this post,
+I like to think of bash scripts as:</p>
+<p>A plain text file containing any series of commands that can be run on the command line.</p>
+<p>It&rsquo;s probably worth noting that in order to execute any of the commands contained
+within the file, you need to ensure your file has the execute permission enabled,
+this can be achieved pretty simply with <code>chmod +x &lt;file_name&gt;</code></p>
+<h3 id="better-logging">Better Logging</h3>
+<p>When writing scripts it&rsquo;s always a good idea to add some <a href="https://links.avdjian.com/bash-guards" target="_blank" rel="noopener noreffer">safeguards</a>
+to ensure that an error in an earlier command does not cascade through the
+script resulting in unexpected behaviour.
+Assuming that appropriate safeguards have been added, I&rsquo;ve found including a few
+helper functions to handle logging can go a long way where user experience is
+concerned.</p>
+<p>Below is a small snippet I like to add to my scripts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">RED=&#34;\\033[31m&#34;
+GREEN=&#34;\\033[32m&#34;
+YELLOW=&#34;\\033[33m&#34;
+RESET=&#34;\\033[0m&#34;
+
+function log_step {
+    echo -e &#34;${GREEN}$*${RESET}&#34;
+}
+
+function log_warning {
+    echo -e &#34;${YELLOW}$*${RESET}&#34;
+}
+
+function log_error {
+    echo -e &#34;${RED}$*${RESET}&#34;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>It sets up some colour variables, and then creates a few functions which can
+be used later in the script to <code>echo</code> outputs to the end user in the colour(s) specified.</p>
+<p>I&rsquo;ve settled on the use of <code>GREEN</code>, <code>YELLOW</code> and <code>RED</code> as they do a good
+job of communicating, errors, warnings, prompts and transitions between commands,
+however, you can always add or change the colours by <a href="https://links.avdjian.com/terminal-colours" target="_blank" rel="noopener noreffer">updating the colour codes</a>
+used.</p>
+<p>Below I&rsquo;ve included a sample script showing how my snippet works in practice:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">RED=&#34;\\033[31m&#34;
+GREEN=&#34;\\033[32m&#34;
+YELLOW=&#34;\\033[33m&#34;
+RESET=&#34;\\033[0m&#34;
+
+function log_step {
+    echo -e &#34;${GREEN}$*${RESET}&#34;
+}
+
+function log_warning {
+    echo -e &#34;${YELLOW}$*${RESET}&#34;
+}
+
+function log_error {
+    echo -e &#34;${RED}$*${RESET}&#34;
+}
+
+log_step &#34;This is the first step of my script&#34;
+log_warning &#34;Sometimes, we&#39;ll throw a warning or prompt for the user&#34;
+log_error &#34;Othertimes, we&#39;ll want to throw an error&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>When the above is run, you see something similar to this:
+<a class="lightgallery" href="/posts/images/2020/07/25/terminal.png" title="/posts/images/2020/07/25/terminal.png" data-thumbnail="/posts/images/2020/07/25/terminal.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2020/07/25/terminal.png"
+            data-srcset="/posts/images/2020/07/25/terminal.png, /posts/images/2020/07/25/terminal.png 1.5x, /posts/images/2020/07/25/terminal.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2020/07/25/terminal.png" />
+    </a></p>
+<p>And with that, thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-07-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" data-title="How to Add Better Logging to Bash Scripts" data-hashtags="shell,UX,logging,bash"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" data-hashtag="shell"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" data-title="How to Add Better Logging to Bash Scripts" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" data-title="How to Add Better Logging to Bash Scripts"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/" data-title="How to Add Better Logging to Bash Scripts"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/shell/">shell</a>,&nbsp;<a href="/tags/ux/">UX</a>,&nbsp;<a href="/tags/logging/">logging</a>,&nbsp;<a href="/tags/bash/">bash</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/07/04/how-to-debugging-garmin-crash-reports/" class="prev" rel="prev" title="How to Debug Garmin Crash Reports"><i class="fas fa-angle-left fa-fw"></i>How to Debug Garmin Crash Reports</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":20},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

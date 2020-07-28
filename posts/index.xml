@@ -3,7 +3,15 @@
         <title>All Posts - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/posts/</link>
         <description>All Posts | Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 04 Jul 2020 12:17:22 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 25 Jul 2020 10:54:30 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>How to Add Better Logging to Bash Scripts</title>
+    <link>https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/</link>
+    <pubDate>Sat, 25 Jul 2020 10:54:30 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/</guid>
+    <description><![CDATA[If I were to look for a site reliability / infrastructure / devops engineer job one of the skills that will likely be mentioned across a large number of specs would be &ldquo;scripting&rdquo;. Next to it, you&rsquo;ll likely see the word &ldquo;bash&rdquo;.
+It is probably the scripting language that I&rsquo;ve used most frequently, both professionally and personally, in that time I&rsquo;ve found a few ways to make my scripts a little more robust and user friendly.]]></description>
+</item><item>
     <title>How to Debug Garmin Crash Reports</title>
     <link>https://www.peteravdjian.com/posts/2020/07/04/how-to-debugging-garmin-crash-reports/</link>
     <pubDate>Sat, 04 Jul 2020 12:17:22 &#43;0100</pubDate>

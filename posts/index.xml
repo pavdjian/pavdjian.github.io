@@ -3,7 +3,15 @@
         <title>All Posts - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/posts/</link>
         <description>All Posts | Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 25 Jul 2020 10:54:30 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Aug 2020 07:20:09 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>`ls` by time modified</title>
+    <link>https://www.peteravdjian.com/posts/2020/08/30/til-ls-by-date/</link>
+    <pubDate>Sun, 30 Aug 2020 07:20:09 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/08/30/til-ls-by-date/</guid>
+    <description><![CDATA[One of the regular commands I employ when working on the command line is the ls command. A few years ago I set up a couple aliases for ls and have used them exclusively.
+1 2  alias ls=&#39;ls -GF&#39; alias ll=&#39;ls -GFlah&#39;   Aliasing ls to ls -GF has given me the ability to list directory contents in colour and with some applied formatting to quickly distinguish the type of file presented.]]></description>
+</item><item>
     <title>How to Add Better Logging to Bash Scripts</title>
     <link>https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/</link>
     <pubDate>Sat, 25 Jul 2020 10:54:30 &#43;0100</pubDate>

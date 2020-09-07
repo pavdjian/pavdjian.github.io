@@ -3,9 +3,17 @@
         <title>Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/</link>
         <description>Personal blog, Garmin apps and more</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Aug 2020 07:20:09 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 07 Sep 2020 10:18:40 &#43;0100</lastBuildDate>
             <atom:link href="https://www.peteravdjian.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Scaling Pixel Art with GIMP</title>
+    <link>https://www.peteravdjian.com/posts/2020/09/07/gimp-scaling-pixel-art/</link>
+    <pubDate>Mon, 07 Sep 2020 10:18:40 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/09/07/gimp-scaling-pixel-art/</guid>
+    <description><![CDATA[Problem I was recently commissioned to create a watch face for an individual, part of the request was to make use of some 8-bit pixel art the user provided. In itself this sounded like an easy enough task so I went about designing the watch face thinking it would be a case of dropping the graphics in place and calling it a day.
+However, once I added the png I was asked to use I ended up with something similar to this]]></description>
+</item><item>
     <title>`ls` by time modified</title>
     <link>https://www.peteravdjian.com/posts/2020/08/30/ls-by-time-modified/</link>
     <pubDate>Sun, 30 Aug 2020 07:20:09 &#43;0100</pubDate>
@@ -80,13 +88,5 @@ Quote  You could do white or black text and get that &ldquo;popping&rdquo; effec
 There are three ways to update your apps, I&rsquo;ll detail all of them below.
 1. Garmin Express   First thing&rsquo;s first, make sure you have downloaded and installed Garmin Express
   Next, connect your watch with the appropriate USB cable and wait for it to show as being connected]]></description>
-</item><item>
-    <title>When Is a Git Repo Not a Git Repo?</title>
-    <link>https://www.peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</link>
-    <pubDate>Tue, 02 Jun 2020 23:12:14 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://www.peteravdjian.com/posts/2020/06/02/when-is-a-git-repo-not-a-git-repo/</guid>
-    <description><![CDATA[I was working on a project recently and I noticed that my git gutter wasn&rsquo;t showing up in VS Code.
-Quick side note, for those that don&rsquo;t know, a git gutter, diff decorator or VCS gutter is a small element that typically shows up on the side of your code files to indicate a change between your local copy of the file and that which the version control system is tracking.]]></description>
 </item></channel>
 </rss>

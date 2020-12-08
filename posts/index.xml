@@ -3,7 +3,15 @@
         <title>All Posts - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/posts/</link>
         <description>All Posts | Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 07 Sep 2020 10:18:40 &#43;0100</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 29 Nov 2020 17:21:38 &#43;0000</lastBuildDate><atom:link href="https://www.peteravdjian.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Garmin Application Unlock</title>
+    <link>https://www.peteravdjian.com/posts/2020/11/29/garmin-application-unlock/</link>
+    <pubDate>Sun, 29 Nov 2020 17:21:38 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2020/11/29/garmin-application-unlock/</guid>
+    <description><![CDATA[Unlocking Your Application Thank you for helping support my work with your donation. The unlock code you will receive will allow you to enjoy premium features that I&rsquo;ve added to my applications, ranging from aesthetic differences, to enhancements in the data displayed or even the functioning of the application.
+Below I will outline the process of receiving an unlock code, if you are having any issues please contact me and I&rsquo;ll be sure to help sort you out.]]></description>
+</item><item>
     <title>Scaling Pixel Art with GIMP</title>
     <link>https://www.peteravdjian.com/posts/2020/09/07/gimp-scaling-pixel-art/</link>
     <pubDate>Mon, 07 Sep 2020 10:18:40 &#43;0100</pubDate>
@@ -76,15 +84,5 @@ Quote  You could do white or black text and get that &ldquo;popping&rdquo; effec
     <author>Author</author>
     <guid>https://www.peteravdjian.com/posts/2020/06/07/how-to-ask-questions/</guid>
     <description><![CDATA[Disclaimer  The below is largely taken from a similar document used at work, which itself is adapted from How To Ask Questions The Smart Way   Don&rsquo;t ask to ask Rather than asking if anyone is available to help with a problem or if anyone is knowledgeable in a certain area, state your question. Someone may not volunteer as an expert in a certain area but may still be able to help you once they see your question.]]></description>
-</item><item>
-    <title>How to Change Your Garmin App Settings</title>
-    <link>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</link>
-    <pubDate>Thu, 04 Jun 2020 07:26:32 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://www.peteravdjian.com/posts/2020/06/04/how-to-change-your-garmin-app-settings/</guid>
-    <description><![CDATA[In my time developing apps for Garmin wearables there is no doubt that the most common question I&rsquo;m asked by users is how to update the settings of an application.
-There are three ways to update your apps, I&rsquo;ll detail all of them below.
-1. Garmin Connect App on Your Phone   Open your Garmin Connect App on your Android or Apple device
-  Make sure your watch is connected to your phone]]></description>
 </item></channel>
 </rss>

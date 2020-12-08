@@ -5,22 +5,7 @@ In my time developing apps for Garmin wearables there is no doubt that the most 
 
 There are three ways to update your apps, I'll detail all of them below.
 
-### 1. Garmin Express
-* First thing's first, make sure you have [downloaded and installed Garmin Express](https://links.avdjian.com/garminexpress)
-* Next, connect your watch with the appropriate USB cable and wait for it to show as being connected
-
-  {{< image src="/posts/images/2020/06/04/express1.png" >}}
-* Click your device and select the `IQ Apps` menu
-
-  {{< image src="/posts/images/2020/06/04/express2.png" >}}
-* You'll now see a list of all apps installed on your device, find the one you want and click the ellipsis
-
-  {{< image src="/posts/images/2020/06/04/express3.png" >}}
-* Set them as you want and make sure to save 👍
-
-  {{< image src="/posts/images/2020/06/04/express4.png" >}}
-
-### 2. Garmin Connect App on Your Phone
+### 1. Garmin Connect App on Your Phone
 * Open your Garmin Connect App on your [Android](https://links.avdjian.com/androidconnect) or [Apple](https://links.avdjian.com/appleconnect) device
 
 * Make sure your watch is connected to your phone
@@ -55,7 +40,7 @@ It would be remiss of me not to mention this, if you want to edit the likes of d
 
   {{< image src="/posts/images/2020/06/04/connect6.jpg" >}}
 
-### 3 ConnectIQ App on Your Phone
+### 2. ConnectIQ App on Your Phone
 * Open the ConnectIQ App on your [Android](https://links.avdjian.com/androidciq) or [Apple](https://links.avdjian.com/appleciq) device
 * Make sure your watch is connected to your phone
 * Tap the watch icon at the bottom of the screen
@@ -74,6 +59,21 @@ It would be remiss of me not to mention this, if you want to edit the likes of d
 * Enjoy 🎉
 
   {{< image src="/posts/images/2020/06/04/ciq5.jpg" >}}
+
+### 3. Garmin Express
+* First thing's first, make sure you have [downloaded and installed Garmin Express](https://links.avdjian.com/garminexpress)
+* Next, connect your watch with the appropriate USB cable and wait for it to show as being connected
+
+  {{< image src="/posts/images/2020/06/04/express1.png" >}}
+* Click your device and select the `IQ Apps` menu
+
+  {{< image src="/posts/images/2020/06/04/express2.png" >}}
+* You'll now see a list of all apps installed on your device, find the one you want and click the ellipsis
+
+  {{< image src="/posts/images/2020/06/04/express3.png" >}}
+* Set them as you want and make sure to save 👍
+
+  {{< image src="/posts/images/2020/06/04/express4.png" >}}
 
 That's it, three different ways to edit your watch settings, be it watch faces, data fields or widgets.
 

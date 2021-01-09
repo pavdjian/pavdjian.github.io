@@ -10,10 +10,10 @@ Below I will outline the process of receiving an unlock code, if you are having 
 and I'll be sure to help sort you out.
 
 ### Finding Your Unlock Token
-The unlock code can only be provided **after** I have received your unlock token. If you donate and **don't provide your
-unlock token**, I have **no way of providing an unlock code**. The unlock token is unique to each of my applications and can be
-found at the bottom of the settings section for the application you want to unlock.
-It is 10 characters long and takes the format `xxx-xxxxxx`.
+The unlock code can only be provided **after** I have received your unlock token. If you [donate](https://donate.avdjian.com/paypal)
+and **don't provide your unlock token**, I have **no way of providing an unlock code**. The unlock token is unique to each of my
+applications and can be found at the bottom of the settings section for the application you want to unlock. It is 10 characters
+long and takes the format `xxx-xxxxxx`.
 
 {{< image src="/posts/images/2020/12/03/unlock_token.jpg" src_s="/posts/images/2020/12/03/unlock_token_small.jpg" width="33%" height="33%">}}
 
@@ -22,7 +22,7 @@ which details how to find and edit Garmin application settings.
 
 
 ### Sending Your Unlock Token
-It is recommended to provide the unlock token as a comment when you donate as seen in the below screenshots
+It is recommended to provide the unlock token as a comment when you [donate](https://donate.avdjian.com/paypal) as seen in the below screenshots
 
 {{< image src="/posts/images/2020/12/03/donating_on_desktop.png" src_s="/posts/images/2020/12/03/donating_on_desktop_small.png" width="33%" height="33%" >}}
 

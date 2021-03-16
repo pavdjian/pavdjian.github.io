@@ -12,68 +12,68 @@ There are three ways to update your apps, I'll detail all of them below.
 
 * Tap the watch icon at the top of the screen
 
-  {{< image src="/posts/images/2020/06/04/connect1.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect1.jpg" width="33%" height="33%" >}}
 
 * Select the `Appearance` menu item
 
-  {{< image src="/posts/images/2020/06/04/connect2.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect2.jpg" width="33%" height="33%" >}}
 
 {{< admonition type=info title="Info - click to expand" open=false >}}
 It would be remiss of me not to mention this, if you want to edit the likes of data fields through the Garmin Connect App, you'll need to click on the `Activities, Apps and More` menu item instead of `Appearance`.
 
-  {{< image src="/posts/images/2020/06/04/connect2.5.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect2.5.jpg" width="33%" height="33%" >}}
 {{< /admonition >}}
 
 * Select either `Watchfaces` or `Widgets`
 
-  {{< image src="/posts/images/2020/06/04/connect3.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect3.jpg" width="33%" height="33%" >}}
 
 * Find the app you wish to update, click it
 
-  {{< image src="/posts/images/2020/06/04/connect4.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect4.jpg" width="33%" height="33%" >}}
 
 * Choose the `Settings` menu item
 
-  {{< image src="/posts/images/2020/06/04/connect5.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect5.jpg" width="33%" height="33%" >}}
 
 * Have at it! Make sure to save when you're done 😊
 
-  {{< image src="/posts/images/2020/06/04/connect6.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/connect6.jpg" width="33%" height="33%" >}}
 
 ### 2. ConnectIQ App on Your Phone
 * Open the ConnectIQ App on your [Android](https://links.avdjian.com/androidciq) or [Apple](https://links.avdjian.com/appleciq) device
 * Make sure your watch is connected to your phone
 * Tap the watch icon at the bottom of the screen
 
-  {{< image src="/posts/images/2020/06/04/ciq1.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/ciq1.jpg" width="33%" height="33%" >}}
 
 * From there select what type of app you wish to edit, watch face, data field, widget
 
-  {{< image src="/posts/images/2020/06/04/ciq2.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/ciq2.jpg" width="33%" height="33%" >}}
 * You'll be presented with a list of apps, choose the one you want to edit
 
-  {{< image src="/posts/images/2020/06/04/ciq3.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/ciq3.jpg" width="33%" height="33%" >}}
 * Select `Settings`
 
-  {{< image src="/posts/images/2020/06/04/ciq4.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/ciq4.jpg" width="33%" height="33%" >}}
 * Enjoy 🎉
 
-  {{< image src="/posts/images/2020/06/04/ciq5.jpg" >}}
+  {{< image src="/posts/images/2020/06/04/ciq5.jpg" width="33%" height="33%" >}}
 
 ### 3. Garmin Express
 * First thing's first, make sure you have [downloaded and installed Garmin Express](https://links.avdjian.com/garminexpress)
 * Next, connect your watch with the appropriate USB cable and wait for it to show as being connected
 
-  {{< image src="/posts/images/2020/06/04/express1.png" >}}
+  {{< image src="/posts/images/2020/06/04/express1.png" width="33%" height="33%" >}}
 * Click your device and select the `IQ Apps` menu
 
-  {{< image src="/posts/images/2020/06/04/express2.png" >}}
+  {{< image src="/posts/images/2020/06/04/express2.png" width="33%" height="33%" >}}
 * You'll now see a list of all apps installed on your device, find the one you want and click the ellipsis
 
-  {{< image src="/posts/images/2020/06/04/express3.png" >}}
+  {{< image src="/posts/images/2020/06/04/express3.png" width="33%" height="33%" >}}
 * Set them as you want and make sure to save 👍
 
-  {{< image src="/posts/images/2020/06/04/express4.png" >}}
+  {{< image src="/posts/images/2020/06/04/express4.png" width="33%" height="33%" >}}
 
 That's it, three different ways to edit your watch settings, be it watch faces, data fields or widgets.
 

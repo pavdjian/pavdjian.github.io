@@ -6,15 +6,16 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Prometheus Label Bookmarklet Rabbit Hole - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="Prometheus Label Bookmarklet Rabbit Hole" />
-<meta property="og:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
+<meta property="og:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&#39; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
 Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" />
-<meta property="article:published_time" content="2020-06-28T10:39:13+01:00" />
-<meta property="article:modified_time" content="2020-06-28T10:39:13+01:00" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-28T10:39:13&#43;01:00" />
+<meta property="article:modified_time" content="2020-06-28T10:39:13&#43;01:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prometheus Label Bookmarklet Rabbit Hole"/>
-<meta name="twitter:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
+<meta name="twitter:description" content="Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus&#39; targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
 Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding."/>
 <meta name="application-name" content="Peter Avdjian">
 <meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
@@ -102,10 +103,10 @@ Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written jav
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Prometheus Label Bookmarklet Rabbit Hole</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/prometheus/"><i class="far fa-folder fa-fw"></i>Prometheus</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-28">2020-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;942 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-280">2020-06-280</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;942 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="content" id="content"><p>Following on <a href="https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/" rel="">from my previous post</a> where I showed the bookmarklet I
-created to allow users to persist labels on Prometheus&rsquo; targets page, I wanted to write a post explaining how I arrived
+created to allow users to persist labels on Prometheus' targets page, I wanted to write a post explaining how I arrived
 at the point of the bookmarklet.</p>
 <div class="details admonition warning open">
         <div class="details-summary admonition-title">
@@ -120,7 +121,7 @@ showcase my approach to solving a problem rather than my prowess in making brows
 to introduce into each scrape configuration I was creating, however the &ldquo;before&rdquo; labels were only visible during
 a mouseover event which was frustrating me no end.</p>
 <p>Digging into the source code to understand how the mouseover tooltip is generated, I noticed that the list of &ldquo;before&rdquo;
-labels was not a dynamic page element, the content of the tooltip is embedded within the pages&rsquo; HTML, so I knew I
+labels was not a dynamic page element, the content of the tooltip is embedded within the pages' HTML, so I knew I
 just needed a way to get to the underlying HTML.</p>
 <p>Initially this was achieved using the inspect element tool, this was ok if a bit clunky.</p>
 <a class="lightgallery" href="/posts/images/2020/06/28/before_labels.png" title="/posts/images/2020/06/28/before_labels.png" data-thumbnail="/posts/images/2020/06/28/before_labels.png">
@@ -309,7 +310,7 @@ it&rsquo;s probably a little much at this point in time 😄</p>
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-06-28</span>
+                <span>Updated on 2020-06-280</span>
             </div>
             <div class="post-info-license"></div>
         </div>

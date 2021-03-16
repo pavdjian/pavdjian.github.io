@@ -2,31 +2,36 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/homebrew/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/2021/03/14/setting-up-a-new-mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/oh-my-zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/shell/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/tips/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ciq/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/garmin/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/garmin/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/12/03/garmin-application-unlock/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/unlock/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/gimp/</loc><lastmod>2020-09-07T10:18:40&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/09/07/gimp-scaling-pixel-art/</loc><lastmod>2020-09-07T10:18:40&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/tips/</loc><lastmod>2020-09-07T10:18:40&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/08/30/ls-by-time-modified/</loc><lastmod>2020-08-30T07:20:09&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/alias/</loc><lastmod>2020-08-30T07:20:09&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ls/</loc><lastmod>2020-08-30T07:20:09&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/til/</loc><lastmod>2020-08-30T07:20:09&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/bash/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/07/25/how-to-add-better-logging-to-bash-scripts/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/categories/how-to/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/logging/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/shell/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ux/</loc><lastmod>2020-07-25T10:54:30&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/era/</loc><lastmod>2020-07-04T12:17:22&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/07/04/how-to-debugging-garmin-crash-reports/</loc><lastmod>2020-07-04T12:17:22&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/how-to/</loc><lastmod>2020-07-04T12:17:22&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ssh/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/posts/2020/07/01/ssh-too-many-authentication-failures/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ssh-add/</loc><lastmod>2020-07-01T11:16:00&#43;01:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>

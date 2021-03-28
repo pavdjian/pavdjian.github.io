@@ -2,19 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/homebrew/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/posts/2021/03/14/how-to-set-up-a-new-mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/categories/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/oh-my-zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/shell/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/tips/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.peteravdjian.com/tags/zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/homebrew/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/2021/03/14/how-to-set-up-a-new-mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/categories/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/how-to/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/mac/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/oh-my-zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/posts/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/shell/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/tips/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://www.peteravdjian.com/tags/zsh/</loc><lastmod>2021-03-14T12:51:21&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/ciq/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/categories/garmin/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.peteravdjian.com/tags/garmin/</loc><lastmod>2020-12-03T17:21:38&#43;00:00</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url><url>

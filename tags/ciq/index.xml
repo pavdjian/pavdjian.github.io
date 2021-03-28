@@ -3,7 +3,14 @@
         <title>ciq - Tag - Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/tags/ciq/</link>
         <description>ciq - Tag - Personal Blog, Garmin Apps and More</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 03 Dec 2020 17:21:38 &#43;0000</lastBuildDate><atom:link href="https://www.peteravdjian.com/tags/ciq/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 20 Mar 2021 14:44:49 &#43;0000</lastBuildDate><atom:link href="https://www.peteravdjian.com/tags/ciq/" rel="self" type="application/rss+xml" /><item>
+    <title>CIQ Development With VSCode - The Gotchas</title>
+    <link>https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/</link>
+    <pubDate>Sat, 20 Mar 2021 14:44:49 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/</guid>
+    <description><![CDATA[The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin! It has been about 5 months since Garmin held their annual developer conference, during which there was an entire breakout session for Connect IQ tools, including the all singing, all dancing, Visual Studio Code extension. Drinking the Kool-Aid, one would have thought Garmin had lowered the barrier to entry for development on the CIQ platform, in their own words]]></description>
+</item><item>
     <title>Garmin Application Unlock</title>
     <link>https://www.peteravdjian.com/posts/2020/12/03/garmin-application-unlock/</link>
     <pubDate>Thu, 03 Dec 2020 17:21:38 &#43;0000</pubDate>

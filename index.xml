@@ -3,9 +3,23 @@
         <title>Personal Blog, Garmin Apps and More</title>
         <link>https://www.peteravdjian.com/</link>
         <description>Personal blog, Garmin apps and more</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 14 Mar 2021 12:51:21 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Mar 2021 12:53:08 &#43;0000</lastBuildDate>
             <atom:link href="https://www.peteravdjian.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>How to Create Custom Card Decks With Tabletop Simulator</title>
+    <link>https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/</link>
+    <pubDate>Sun, 28 Mar 2021 12:53:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/</guid>
+    <description><![CDATA[When Tabletop Simulator released in 2015, the idea of a single application that would allow me to play board games no matter where I found myself was very appealing. However, since it was a sandbox style game, unless you had others who were keen to join in the fun there was little that you could do. About a year after its release, I bought a four pack, shared the extra copies amongst friends and proceeded to play it a grand total of 30 minutes.]]></description>
+</item><item>
+    <title>CIQ Development With VSCode - The Gotchas</title>
+    <link>https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/</link>
+    <pubDate>Sat, 20 Mar 2021 14:44:49 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/</guid>
+    <description><![CDATA[The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin! It has been about 5 months since Garmin held their annual developer conference, during which there was an entire breakout session for Connect IQ tools, including the all singing, all dancing, Visual Studio Code extension. Drinking the Kool-Aid, one would have thought Garmin had lowered the barrier to entry for development on the CIQ platform, in their own words]]></description>
+</item><item>
     <title>How To Set Up a New Mac</title>
     <link>https://www.peteravdjian.com/posts/2021/03/14/how-to-set-up-a-new-mac/</link>
     <pubDate>Sun, 14 Mar 2021 12:51:21 &#43;0000</pubDate>
@@ -68,23 +82,5 @@ Since my task had me inspecting both control-plane and etcd instances to ensure 
     <guid>https://www.peteravdjian.com/posts/2020/06/28/prometheus-label-bookmarklet-rabbit-hole/</guid>
     <description><![CDATA[Following on from my previous post where I showed the bookmarklet I created to allow users to persist labels on Prometheus' targets page, I wanted to write a post explaining how I arrived at the point of the bookmarklet.
 Warning  I&rsquo;m not a frontend developer and haven&rsquo;t really written javascript in a good few years, the below is just meant to showcase my approach to solving a problem rather than my prowess in making browsers do my bidding.]]></description>
-</item><item>
-    <title>Prometheus Label Bookmarklet</title>
-    <link>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</link>
-    <pubDate>Fri, 12 Jun 2020 09:39:43 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://www.peteravdjian.com/posts/2020/06/12/prometheus-label-bookmarklet/</guid>
-    <description><![CDATA[One of the most recent projects I&rsquo;ve been involved with at work has been the exploration of Prometheus as a metrics and monitoring tool. I expect as I spend more time with the tooling I&rsquo;ll probably be writing more posts, mostly in the &ldquo;TIL&rdquo; vain.
-Today, however, is not one of those posts. Instead, I wanted to show off a few lines of code I put together which I&rsquo;ve found pretty useful when setting up our scrape configs.]]></description>
-</item><item>
-    <title>GIMP Colour Exchange</title>
-    <link>https://www.peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</link>
-    <pubDate>Wed, 10 Jun 2020 09:45:01 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://www.peteravdjian.com/posts/2020/06/10/gimp-colour-exchange/</guid>
-    <description><![CDATA[Jibber Jabber Only want instructions, skip the jibber jabber&hellip;
-A friend recently asked for some advice regarding some colour combinations. Below is an example of what he showed us
- I gave my thoughts, namely that light text on the light background wasn&rsquo;t a very easy to read combination and I suggested that maybe
-Quote  You could do white or black text and get that &ldquo;popping&rdquo; effect on all colours.]]></description>
 </item></channel>
 </rss>

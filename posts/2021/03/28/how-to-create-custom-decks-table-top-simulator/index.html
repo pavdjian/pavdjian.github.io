@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>How to Create Custom Card Decks With Tabletop Simulator - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="How to Create Custom Card Decks With Tabletop Simulator" />
+<meta property="og:description" content="When Tabletop Simulator released in 2015, the idea of a single application that would allow me to play board games no matter where I found myself was very appealing. However, since it was a sandbox style game, unless you had others who were keen to join in the fun there was little that you could do. About a year after its release, I bought a four pack, shared the extra copies amongst friends and proceeded to play it a grand total of 30 minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-28T12:53:08&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-28T12:53:08&#43;00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Create Custom Card Decks With Tabletop Simulator"/>
+<meta name="twitter:description" content="When Tabletop Simulator released in 2015, the idea of a single application that would allow me to play board games no matter where I found myself was very appealing. However, since it was a sandbox style game, unless you had others who were keen to join in the fun there was little that you could do. About a year after its release, I bought a four pack, shared the extra copies amongst friends and proceeded to play it a grand total of 30 minutes."/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" /><link rel="prev" href="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Create Custom Card Decks With Tabletop Simulator",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.peteravdjian.com\/posts\/2021\/03\/28\/how-to-create-custom-decks-table-top-simulator\/"
+        },"genre": "posts","keywords": "tabletop simulator, tts, custom deck, how-to","wordcount":  1550 ,
+        "url": "https:\/\/www.peteravdjian.com\/posts\/2021\/03\/28\/how-to-create-custom-decks-table-top-simulator\/","datePublished": "2021-03-28T12:53:08+00:00","dateModified": "2021-03-28T12:53:08+00:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">How to Create Custom Card Decks With Tabletop Simulator</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/how-to/"><i class="far fa-folder fa-fw"></i>How-To</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-28">2021-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1550 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#berserk-games-deck-builder">Berserk Games' Deck Builder</a></li>
+    <li><a href="#building-a-custom-deck">Building A Custom Deck</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>When Tabletop Simulator released in 2015, the idea of a single application that would
+allow me to play board games no matter where I found myself was very appealing.
+However, since it was a sandbox style game, unless you had others who were keen to
+join in the fun there was little that you could do. About a year after its release, I
+bought a four pack, shared the extra copies amongst friends and proceeded to play it a
+grand total of 30 minutes. It has since sat in my Steam library untouched until this
+week when I was looking for an application to test a prototype card game.</p>
+<p>Due to various NDAs and verbal promises I can&rsquo;t divulge much about the card game
+I wanted to prototype, however, I can show others how they could use Tabletop Simulator
+to import card designs in order to prototype and play test their own card games.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before we get started, you&rsquo;ll need:</p>
+<ul>
+<li>Some card designs. Obviously. I found some sample cards on <a href="https://www.reddit.com/r/tabletopgamedesign/comments/8wvw05/new_print_and_play_sheet_with_updated_artwork_for/" target="_blank" rel="noopener noreffer">Reddit</a></li>
+<li>You&rsquo;ll also need a design for the card back, <a href="https://cdn.shopify.com/s/files/1/0200/7616/products/0008_messymod-playing-cards_0008_back-design_1024x1024.png" target="_blank" rel="noopener noreffer">Google helped me</a>
+here.</li>
+</ul>
+<h2 id="berserk-games-deck-builder">Berserk Games' Deck Builder</h2>
+<p>Undoubtedly the easiest and quickest method of getting your cards ready for use
+in Tabletop Simulator would be the included <a href="https://kb.tabletopsimulator.com/custom-content/custom-deck/" target="_blank" rel="noopener noreffer">Deck Builder</a>.</p>
+<p>However, I&rsquo;ve not been able to get this working with Mac OS. When I try to run the Deck Builder jar file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">~/Library/Application\ Support/Steam/steamapps/common/Tabletop\ Simulator/Modding/Deck\ Builder/TSDB_v2.3.0.jar
+</code></pre></td></tr></table>
+</div>
+</div><p>I am greeted by an application window which seems to function, in that, I can create a
+new deck and load the card designs correctly, but when I try export the images as a card sheet
+it fails.</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/deckbuilder.png" title="/posts/images/2021/03/28/deckbuilder.png" data-thumbnail="/posts/images/2021/03/28/deckbuilder.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/deckbuilder.png"
+            data-srcset="/posts/images/2021/03/28/deckbuilder.png, /posts/images/2021/03/28/deckbuilder.png 1.5x, /posts/images/2021/03/28/deckbuilder.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/deckbuilder.png" height="33%" width="33%" />
+    </a>
+<p>Fun fact, if you run the Deck Builder by double click the application file, the export fails silently.
+Below you can see a screenshot of the Deck Builders log output which, in theory, should
+give you an indication of what the application is doing and if any issues arise during use.</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/logger.png" title="/posts/images/2021/03/28/logger.png" data-thumbnail="/posts/images/2021/03/28/logger.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/logger.png"
+            data-srcset="/posts/images/2021/03/28/logger.png, /posts/images/2021/03/28/logger.png 1.5x, /posts/images/2021/03/28/logger.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/logger.png" height="33%" width="33%" />
+    </a>
+<p>If I was to running the Deck Builder through the command line and try to export my card sheet
+I get a stack trace of the export failure</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="err">»</span> <span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">TSDB_v2</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">jar</span>
+<span class="n">Exception</span> <span class="n">in</span> <span class="n">thread</span> <span class="s">&#34;AWT-EventQueue-0&#34;</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">NoClassDefFoundError</span><span class="o">:</span> <span class="n">javax</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">jai</span><span class="o">/</span><span class="n">Interpolation</span>
+	<span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">anwinity</span><span class="o">.</span><span class="na">tsdb</span><span class="o">.</span><span class="na">ui</span><span class="o">.</span><span class="na">deckbuilder</span><span class="o">.</span><span class="na">DeckBuilderExportModal2$5</span><span class="o">.</span><span class="na">actionPerformed</span><span class="o">(</span><span class="n">DeckBuilderExportModal2</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">332</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">AbstractButton</span><span class="o">.</span><span class="na">fireActionPerformed</span><span class="o">(</span><span class="n">AbstractButton</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1972</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">AbstractButton$Handler</span><span class="o">.</span><span class="na">actionPerformed</span><span class="o">(</span><span class="n">AbstractButton</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2313</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">DefaultButtonModel</span><span class="o">.</span><span class="na">fireActionPerformed</span><span class="o">(</span><span class="n">DefaultButtonModel</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">405</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">DefaultButtonModel</span><span class="o">.</span><span class="na">setPressed</span><span class="o">(</span><span class="n">DefaultButtonModel</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">262</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">plaf</span><span class="o">.</span><span class="na">basic</span><span class="o">.</span><span class="na">BasicButtonListener</span><span class="o">.</span><span class="na">mouseReleased</span><span class="o">(</span><span class="n">BasicButtonListener</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">279</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">6617</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">JComponent</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">JComponent</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">3342</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">processEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">6382</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">processEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2264</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4993</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2322</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4825</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">retargetMouseEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4934</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4563</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4504</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2308</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Window</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2773</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4825</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">772</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">721</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">715</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">AccessController</span><span class="o">.</span><span class="na">doPrivileged</span><span class="o">(</span><span class="n">AccessController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">391</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">95</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">743</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">AccessController</span><span class="o">.</span><span class="na">doPrivileged</span><span class="o">(</span><span class="n">AccessController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">391</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">742</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpOneEventForFilters</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">203</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEventsForFilter</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">124</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEventsForFilter</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">117</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">WaitDispatchSupport$2</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">WaitDispatchSupport</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">190</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">WaitDispatchSupport$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">WaitDispatchSupport</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">235</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">WaitDispatchSupport$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">WaitDispatchSupport</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">233</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">AccessController</span><span class="o">.</span><span class="na">doPrivileged</span><span class="o">(</span><span class="n">AccessController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">312</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">WaitDispatchSupport</span><span class="o">.</span><span class="na">enter</span><span class="o">(</span><span class="n">WaitDispatchSupport</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">233</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1079</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1720</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1667</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Window</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1032</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Dialog</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="n">Dialog</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1014</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">anwinity</span><span class="o">.</span><span class="na">tsdb</span><span class="o">.</span><span class="na">ui</span><span class="o">.</span><span class="na">deckbuilder</span><span class="o">.</span><span class="na">DeckBuilderExportModal2</span><span class="o">.</span><span class="na">showModal</span><span class="o">(</span><span class="n">DeckBuilderExportModal2</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">389</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">anwinity</span><span class="o">.</span><span class="na">tsdb</span><span class="o">.</span><span class="na">ui</span><span class="o">.</span><span class="na">deckbuilder</span><span class="o">.</span><span class="na">menu</span><span class="o">.</span><span class="na">file</span><span class="o">.</span><span class="na">ExportDeckMenuItem$1</span><span class="o">.</span><span class="na">actionPerformed</span><span class="o">(</span><span class="n">ExportDeckMenuItem</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">27</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">AbstractButton</span><span class="o">.</span><span class="na">fireActionPerformed</span><span class="o">(</span><span class="n">AbstractButton</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1972</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">AbstractButton$Handler</span><span class="o">.</span><span class="na">actionPerformed</span><span class="o">(</span><span class="n">AbstractButton</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2313</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">DefaultButtonModel</span><span class="o">.</span><span class="na">fireActionPerformed</span><span class="o">(</span><span class="n">DefaultButtonModel</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">405</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">DefaultButtonModel</span><span class="o">.</span><span class="na">setPressed</span><span class="o">(</span><span class="n">DefaultButtonModel</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">262</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">AbstractButton</span><span class="o">.</span><span class="na">doClick</span><span class="o">(</span><span class="n">AbstractButton</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">374</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">plaf</span><span class="o">.</span><span class="na">basic</span><span class="o">.</span><span class="na">BasicMenuItemUI</span><span class="o">.</span><span class="na">doClick</span><span class="o">(</span><span class="n">BasicMenuItemUI</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1022</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">com</span><span class="o">.</span><span class="na">apple</span><span class="o">.</span><span class="na">laf</span><span class="o">.</span><span class="na">AquaMenuItemUI</span><span class="o">.</span><span class="na">doClick</span><span class="o">(</span><span class="n">AquaMenuItemUI</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">157</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">plaf</span><span class="o">.</span><span class="na">basic</span><span class="o">.</span><span class="na">BasicMenuItemUI$Handler</span><span class="o">.</span><span class="na">mouseReleased</span><span class="o">(</span><span class="n">BasicMenuItemUI</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1066</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">AWTEventMulticaster</span><span class="o">.</span><span class="na">mouseReleased</span><span class="o">(</span><span class="n">AWTEventMulticaster</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">297</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">6617</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">swing</span><span class="o">.</span><span class="na">JComponent</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">JComponent</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">3342</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">processEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">6382</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">processEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2264</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4993</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2322</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4825</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">retargetMouseEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4934</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">processMouseEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4563</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">LightweightDispatcher</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4504</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Container</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Container</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2308</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Window</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2773</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Component</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">Component</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">4825</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue</span><span class="o">.</span><span class="na">dispatchEventImpl</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">772</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">721</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$4</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">715</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">AccessController</span><span class="o">.</span><span class="na">doPrivileged</span><span class="o">(</span><span class="n">AccessController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">391</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">95</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">743</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">AccessController</span><span class="o">.</span><span class="na">doPrivileged</span><span class="o">(</span><span class="n">AccessController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">391</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">ProtectionDomain$JavaSecurityAccessImpl</span><span class="o">.</span><span class="na">doIntersectionPrivilege</span><span class="o">(</span><span class="n">ProtectionDomain</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue</span><span class="o">.</span><span class="na">dispatchEvent</span><span class="o">(</span><span class="n">EventQueue</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">742</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpOneEventForFilters</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">203</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEventsForFilter</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">124</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEventsForHierarchy</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">113</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEvents</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">109</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">pumpEvents</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">101</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">desktop</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventDispatchThread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EventDispatchThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">90</span><span class="o">)</span>
+<span class="n">Caused</span> <span class="n">by</span><span class="o">:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassNotFoundException</span><span class="o">:</span> <span class="n">javax</span><span class="o">.</span><span class="na">media</span><span class="o">.</span><span class="na">jai</span><span class="o">.</span><span class="na">Interpolation</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">URLClassLoader</span><span class="o">.</span><span class="na">findClass</span><span class="o">(</span><span class="n">URLClassLoader</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">433</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassLoader</span><span class="o">.</span><span class="na">loadClass</span><span class="o">(</span><span class="n">ClassLoader</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">586</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">base</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassLoader</span><span class="o">.</span><span class="na">loadClass</span><span class="o">(</span><span class="n">ClassLoader</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">519</span><span class="o">)</span>
+	<span class="o">...</span> <span class="n">84</span> <span class="n">more</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>So, assuming the Deck Builder application fails to export your cards, what other options are there?</p>
+<ol>
+<li>You could try to create the card sheet manually. I&rsquo;m guessing that would be quite painful.</li>
+<li>You could find someone to do it for you, technically the sample cards I found for this post
+were probably in a format that Tabletop Simulator could already consume.</li>
+<li>You could find an alternative app or service to create the template.</li>
+<li>You could figure out what is causing the Java app to fail and fix it.</li>
+<li>You could just stick to physical prototypes&hellip;</li>
+</ol>
+<p>Enter <a href="https://imagemagick.org/" target="_blank" rel="noopener noreffer">Imagemagick</a>!</p>
+<p>I chose option 3, in the form of Imagemagick, which allows me to manipulate images
+in a variety of ways, one of which, <a href="https://legacy.imagemagick.org/Usage/montage/" target="_blank" rel="noopener noreffer"><code>montage</code></a>,
+should allow me to tile my images in a way that allows me to generate a card sheet.</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The &ldquo;montage&rdquo; command is designed to produce an array of thumbnail images. Sort of like a proof sheet of a large collection of images.</div>
+        </div>
+    </div>
+<p>Below I&rsquo;m going to outline how you can use the command and hopefully remove some
+of the guesswork I went through. I&rsquo;m tailoring this for Mac OS, since it&rsquo;s what I
+use, I would assume the process is the same elsewhere, but 🤷‍♂️</p>
+<h2 id="building-a-custom-deck">Building A Custom Deck</h2>
+<ol>
+<li>
+<p>Firstly, let&rsquo;s get Imagemagick installed.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Depending on the state of your machine, you might need a few dependencies</span>
+<span class="c1"># Grab a drink while this does its thing</span>
+brew install imagemagick
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Once installed, verify it&rsquo;s working by checking the <code>montage</code> version</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">montage -version
+Version: ImageMagick 7.0.11-4 Q16 x86_64 2021-03-20 https://imagemagick.org
+Copyright: (C) 1999-2021 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC HDRI Modules OpenMP(4.5)
+Delegates (built-in): bzlib freetype gslib heic jng jp2 jpeg lcms lqr ltdl lzma openexr png ps tiff webp xml zlib
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Next, collect all the cards you want on your card sheet into a single directory.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Names and Folder Structure<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Tabletop Simulator has a couple of restrictions on card sheet sizes, the smallest
+they can be is <code>2x2</code> and the largest they can be is <code>10x7</code>. If you have more
+than 70 cards, it would be ideal to split them into different folders or &ldquo;decks&rdquo;.
+A standard naming convention for your cards would be useful if you wish to keep
+them in a single folder</div>
+        </div>
+    </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">» tree
+.
+├── actionDeck_dive.jpeg
+├── actionDeck_dodge.jpeg
+├── actionDeck_flee.jpeg
+├── actionDeck_grapple.jpeg
+├── actionDeck_jump.jpeg
+├── actionDeck_kick.jpeg
+├── actionDeck_punch.jpeg
+├── actionDeck_sprint.jpeg
+├── actionDeck_throw.jpeg
+├── playerDeck_amateur.jpeg
+├── playerDeck_bard.jpeg
+├── playerDeck_duelist.jpeg
+├── playerDeck_magician.jpeg
+├── playerDeck_priest.jpeg
+├── playerDeck_savage.jpeg
+├── playerDeck_scrapper.jpeg
+├── playerDeck_spy.jpeg
+└── playerDeck_thief.jpeg
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>With your cards collected, you want to pass the cards through to the <code>montage</code>
+command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">montage <span class="se">\
+</span><span class="se"></span>-geometry 440x636 <span class="se">\
+</span><span class="se"></span>-tile 3x3 <span class="se">\
+</span><span class="se"></span>playerDeck_amateur.jpeg playerDeck_bard.jpeg playerDeck_duelist.jpeg <span class="se">\
+</span><span class="se"></span>playerDeck_magician.jpeg playerDeck_priest.jpeg playerDeck_savage.jpeg <span class="se">\
+</span><span class="se"></span>playerDeck_scrapper.jpeg playerDeck_spy.jpeg playerDeck_thief.jpeg <span class="se">\
+</span><span class="se"></span>cardsheet_playerDeck.jpg
+</code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s break the command down:</p>
+<ul>
+<li><code>montage</code> - the type of transformation we want ImageMagick to do for us</li>
+<li><code>-geometry XxY</code> - the size in pixels of the cards you are using, so in my case
+440 pixels wide by 636 pixels tall</li>
+<li><code>-tile XxY</code> - the number of cards wide and number of cards tall the card sheet
+will be. Again, in my case, it&rsquo;s a 3 card wide, by 3 card tall card sheet</li>
+<li><code>playerDeck_*.jpeg</code> - the names of the cards I wish <code>montage</code> to use</li>
+<li><code>cardsheet_playerDeck.jpg</code> - the name of the output file I wish <code>montage</code> to create</li>
+</ul>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Potential Data Loss<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Make sure you <strong><em>always</em></strong>, include the final argument specifying an output file.
+If you don&rsquo;t include one, ImageMagick will assume that the last card in your provided
+card list is the file you wish to output the rendered card sheet to and it will overwrite
+the file with no prompt or further user interaction.</div>
+        </div>
+    </div>
+</li>
+<li>
+<p>At this point you should check that you have a card sheet that contains all
+your card faces</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/cardsheet.jpg" title="/posts/images/2021/03/28/cardsheet.jpg" data-thumbnail="/posts/images/2021/03/28/cardsheet.jpg">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/cardsheet.jpg"
+            data-srcset="/posts/images/2021/03/28/cardsheet.jpg, /posts/images/2021/03/28/cardsheet.jpg 1.5x, /posts/images/2021/03/28/cardsheet.jpg 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/cardsheet.jpg" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Load up Tabletop Simulator and start a new game, you&rsquo;ll want to start with
+an empty table, so feel free to exit out of all the menus and pop-ups that appear
+when starting a new game</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts1.png" title="/posts/images/2021/03/28/tts1.png" data-thumbnail="/posts/images/2021/03/28/tts1.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts1.png"
+            data-srcset="/posts/images/2021/03/28/tts1.png, /posts/images/2021/03/28/tts1.png 1.5x, /posts/images/2021/03/28/tts1.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts1.png" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Create a &ldquo;Custom Deck&rdquo; object on the table, go through the menu
+<code>Objects -&gt; Components -&gt; Custom -&gt; Deck</code>, once you&rsquo;ve got your object, drop it
+anywhere on the table by clicking once.</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts2.png" title="/posts/images/2021/03/28/tts2.png" data-thumbnail="/posts/images/2021/03/28/tts2.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts2.png"
+            data-srcset="/posts/images/2021/03/28/tts2.png, /posts/images/2021/03/28/tts2.png 1.5x, /posts/images/2021/03/28/tts2.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts2.png" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Right click the newly created deck to open up the properties menu</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts3.png" title="/posts/images/2021/03/28/tts3.png" data-thumbnail="/posts/images/2021/03/28/tts3.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts3.png"
+            data-srcset="/posts/images/2021/03/28/tts3.png, /posts/images/2021/03/28/tts3.png 1.5x, /posts/images/2021/03/28/tts3.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts3.png" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Select the <code>cardsheet_playerDeck.jpg</code> we created as the <strong>&ldquo;Face&rdquo;</strong> of the card.
+We can also set the card back design we downloaded earlier as our card <strong>&ldquo;Back&rdquo;</strong>.</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Local vs Cloud files<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>When setting your designs, you will be prompted to load them locally or store
+them in the cloud.</p>
+<p>Choosing local will mean only you can see the designs and you can&rsquo;t use them in
+multiplayer games.</p>
+<p>The cloud option loads them into your personal cloud space, each user of Tabletop Simulator get 100GB of storage.</p>
+<p>Alternatively, you can use a cloud storage solution of your choice to store the
+pictures and load them via URL instead of local file reference</p>
+</div>
+        </div>
+    </div>
+</li>
+<li>
+<p>Set the <strong>&ldquo;Width&rdquo;</strong> and <strong>&ldquo;Height&rdquo;</strong> values equal to the values you used in
+the <code>-tile</code> argument of your <code>montage</code> command. In our example earlier, 3x3.</p>
+</li>
+<li>
+<p>Finally set the number of cards in your deck, again in our example 9 (3x3).</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts4.png" title="/posts/images/2021/03/28/tts4.png" data-thumbnail="/posts/images/2021/03/28/tts4.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts4.png"
+            data-srcset="/posts/images/2021/03/28/tts4.png, /posts/images/2021/03/28/tts4.png 1.5x, /posts/images/2021/03/28/tts4.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts4.png" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Click <strong>&ldquo;Import&rdquo;</strong></p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts5.png" title="/posts/images/2021/03/28/tts5.png" data-thumbnail="/posts/images/2021/03/28/tts5.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts5.png"
+            data-srcset="/posts/images/2021/03/28/tts5.png, /posts/images/2021/03/28/tts5.png 1.5x, /posts/images/2021/03/28/tts5.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts5.png" height="33%" width="33%" />
+    </a>
+</li>
+<li>
+<p>Go have fun with all your lovely cards!</p>
+<a class="lightgallery" href="/posts/images/2021/03/28/tts6.png" title="/posts/images/2021/03/28/tts6.png" data-thumbnail="/posts/images/2021/03/28/tts6.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/28/tts6.png"
+            data-srcset="/posts/images/2021/03/28/tts6.png, /posts/images/2021/03/28/tts6.png 1.5x, /posts/images/2021/03/28/tts6.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/28/tts6.png" height="33%" width="33%" />
+    </a>
+</li>
+</ol>
+<p>And with that, thanks for reading 🃏</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-03-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" data-title="How to Create Custom Card Decks With Tabletop Simulator" data-hashtags="tabletop simulator,tts,custom deck,how-to"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" data-hashtag="tabletop simulator"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" data-title="How to Create Custom Card Decks With Tabletop Simulator" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" data-title="How to Create Custom Card Decks With Tabletop Simulator"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" data-title="How to Create Custom Card Decks With Tabletop Simulator"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/tabletop-simulator/">tabletop simulator</a>,&nbsp;<a href="/tags/tts/">tts</a>,&nbsp;<a href="/tags/custom-deck/">custom deck</a>,&nbsp;<a href="/tags/how-to/">how-to</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2021/03/20/ciq-development-with-vscode/" class="prev" rel="prev" title="CIQ Development With VSCode - The Gotchas"><i class="fas fa-angle-left fa-fw"></i>CIQ Development With VSCode - The Gotchas</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":20},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

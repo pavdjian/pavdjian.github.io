@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>CIQ Development With VSCode - The Gotchas - Personal Blog, Garmin Apps and More</title><meta name="Description" content="Personal blog, Garmin apps and more"><meta property="og:title" content="CIQ Development With VSCode - The Gotchas" />
+<meta property="og:description" content="The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin! It has been about 5 months since Garmin held their annual developer conference, during which there was an entire breakout session for Connect IQ tools, including the all singing, all dancing, Visual Studio Code extension. Drinking the Kool-Aid, one would have thought Garmin had lowered the barrier to entry for development on the CIQ platform, in their own words" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-20T14:44:49&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-20T14:44:49&#43;00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CIQ Development With VSCode - The Gotchas"/>
+<meta name="twitter:description" content="The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin! It has been about 5 months since Garmin held their annual developer conference, during which there was an entire breakout session for Connect IQ tools, including the all singing, all dancing, Visual Studio Code extension. Drinking the Kool-Aid, one would have thought Garmin had lowered the barrier to entry for development on the CIQ platform, in their own words"/>
+<meta name="application-name" content="Peter Avdjian">
+<meta name="apple-mobile-web-app-title" content="Peter Avdjian"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" /><link rel="prev" href="https://www.peteravdjian.com/posts/2021/03/14/how-to-set-up-a-new-mac/" /><link rel="next" href="https://www.peteravdjian.com/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CIQ Development With VSCode - The Gotchas",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.peteravdjian.com\/posts\/2021\/03\/20\/ciq-development-with-vscode\/"
+        },"genre": "posts","keywords": "garmin, ciq, vscode, eclpise, garmin developer conference","wordcount":  1693 ,
+        "url": "https:\/\/www.peteravdjian.com\/posts\/2021\/03\/20\/ciq-development-with-vscode\/","datePublished": "2021-03-20T14:44:49+00:00","dateModified": "2021-03-20T14:44:49+00:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx"},"author": {
+                "@type": "Person",
+                "name": "Peter Avdjian"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Personal Blog, Garmin Apps and More"><span class="header-title-pre"><i class='fa fa-home'></i></span>Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">CIQ Development With VSCode - The Gotchas</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Peter Avdjian</a></span>&nbsp;<span class="post-category">included in <a href="/categories/garmin/"><i class="far fa-folder fa-fw"></i>Garmin</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-20">2021-03-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1693 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-connect-iq-eclipse-plugin-is-dead-long-live-the-connect-iq-eclipse-plugin">The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin!</a></li>
+    <li><a href="#incorrect-documentation-is-often-worse-than-no-documentation">Incorrect documentation is often worse than no documentation.</a>
+      <ul>
+        <li><a href="#gotcha-1-environment"><strong>Gotcha 1:</strong> Environment</a></li>
+        <li><a href="#gotcha-2-visual-studio-code-workspace-layout-matters"><strong>Gotcha 2:</strong> Visual Studio Code Workspace Layout Matters</a></li>
+        <li><a href="#gotcha-3-manifest-editing-became-that-little-bit-harder"><strong>Gotcha 3:</strong> Manifest Editing Became That Little Bit Harder</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="the-connect-iq-eclipse-plugin-is-dead-long-live-the-connect-iq-eclipse-plugin">The Connect IQ Eclipse Plugin is dead! Long live the Connect IQ Eclipse Plugin!</h2>
+<p>It has been about 5 months since Garmin held their <a href="https://forums.garmin.com/developer/garmin-developer-virtual-conference-2020/" target="_blank" rel="noopener noreffer">annual developer conference</a>,
+during which there was an entire breakout session for Connect IQ tools, including the all singing,
+all dancing, <a href="https://marketplace.visualstudio.com/items?itemName=garmin.monkey-c" target="_blank" rel="noopener noreffer">Visual Studio Code extension</a>.
+Drinking the Kool-Aid, one would have thought Garmin had lowered the barrier to entry
+for development on the CIQ platform, in their own words</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">When Connect IQ launched, we provided a plugin for Eclipse as our development environment.
+The Eclipse IDE is sophisticated at best, and complicated at worst, to the point that
+Eclipse can be a barrier to entry for learning Connect IQ.</div>
+        </div>
+    </div>
+<p>The Eclipse environment isn&rsquo;t great, the IDE feels outdated, it lacks extensibility
+and even the simplest tasks such as changing the default theme has you jumping
+through multiple hoops. Frankly, it was such a bad experience that I would only use Eclipse to edit my <code>manifest.xml</code> file.</p>
+<p>I actually went as far as adding a couple of functions to my ZSH
+profile so that I could avoid opening Eclipse for most everyday
+development.</p>
+<div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>ZSH profile commands for the curious<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">###</span>
+<span class="c1"># Garmin Command Line Simulator</span>
+<span class="c1">###</span>
+
+ciq <span class="o">()</span> <span class="o">{</span>
+ <span class="nb">echo</span> <span class="s2">&#34;Starting ConnectIQ Simulator&#34;</span>
+ <span class="nb">command</span> ~/ConnectIQ/connectIQ
+
+ <span class="nb">echo</span> <span class="s2">&#34;Building Project: </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">.prg \nDevice Type: </span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#34;</span>
+ <span class="nb">command</span> ~/ConnectIQ/monkeyc -o bin/<span class="s2">&#34;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&#34;</span>.prg -f monkey.jungle -y /key/garmin_developer_key -d <span class="s2">&#34;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#34;</span>
+
+ <span class="nb">echo</span> <span class="s2">&#34;Starting </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">.prg on </span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#34;</span>
+ <span class="nb">command</span> ~/ConnectIQ/monkeydo bin/<span class="s2">&#34;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&#34;</span>.prg <span class="s2">&#34;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">}</span>
+
+buildciq <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Starting Build of </span><span class="nv">$1</span><span class="s2">&#34;</span>
+  <span class="nb">command</span> ~/ConnectIQ/monkeyc --release --package-app --private-key /key/garmin_developer_key -f monkey.jungle -o IQ/<span class="nv">$1</span>.iq
+
+  <span class="nb">echo</span> <span class="s2">&#34;Build finished&#34;</span>
+  <span class="nb">command</span> ls -lah IQ/<span class="nv">$1</span>.iq
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<p>Despite these shortcomings, when it came to setting up Eclipse on your machine, Garmin
+provided you with a complete set of steps covering how to install and configure your
+development environment.</p>
+<p>In fact, at time of writing, taking at look at Garmin&rsquo;s
+<a href="https://developer.garmin.com/connect-iq/connect-iq-basics/getting-started/" target="_blank" rel="noopener noreffer">getting started</a>
+and <a href="https://developer.garmin.com/connect-iq/sdk/" target="_blank" rel="noopener noreffer">SDK</a> documentation, Eclipse is still the chosen / supported development
+environment.</p>
+<p>Now, it is true that feature parity between the  plugin for Visual Studio Code and
+Eclipse is not quite there, which would explain the reason for downplaying the VS Code
+side of CIQ development. However, were you to stumble across one of the few buried
+posts on <a href="https://forums.garmin.com/" target="_blank" rel="noopener noreffer">Garmin Forums</a> or the
+plugin&rsquo;s <a href="https://marketplace.visualstudio.com/items?itemName=garmin.monkey-c" target="_blank" rel="noopener noreffer">marketplace page</a>
+you&rsquo;d be forgiven for thinking you only need to follow the following 5 steps to get up and running</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>Install extension</li>
+<li>Download the Connect IQ SDK Manager</li>
+<li>Download an SDK and set it as the current SDK using the SDK Manager</li>
+<li>Download devices using the SDK Manager</li>
+<li>Run the Monkey C: Verify Installation command to ensure the development environment is correctly setup</li>
+</ol>
+</div>
+        </div>
+    </div>
+<p>That, I&rsquo;m afraid, is not entirely accurate. There are a few gotchas I&rsquo;ve come across
+while getting set up with the plugin and I thought it would be worthwhile mentioning
+them to save others the troubles I went through.</p>
+<h2 id="incorrect-documentation-is-often-worse-than-no-documentation">Incorrect documentation is often worse than no documentation.</h2>
+<h3 id="gotcha-1-environment"><strong>Gotcha 1:</strong> Environment</h3>
+<p>There is a prerequisite of the Oracle Java Runtime Environment (version 1.8.0 or higher),
+which applies to any Connect IQ development you want to do. You&rsquo;ll hit this
+roadblock pretty quickly if you tried to run any projects after setting up your plugin.
+If I was being completely honest, this gotcha isn&rsquo;t unique
+to the Visual Studio Code plugin, but then this goes back to my
+original point that when a user is setting up Eclipse you&rsquo;re told
+of this requirement, kind of&hellip;</p>
+<p>You see, this little nugget of information is present within the getting started
+guide on the Garmin Developer website, but not readily surfaced during SDK or
+plugin download 🤷‍♂️</p>
+<p>Anyways, onto the solution. For those on MacOS, assuming you use the <a href="https://brew.sh" target="_blank" rel="noopener noreffer">Homebrew</a>
+package manager, you can install the Runtime Environment with the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install oracle-jdk
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="gotcha-2-visual-studio-code-workspace-layout-matters"><strong>Gotcha 2:</strong> Visual Studio Code Workspace Layout Matters</h3>
+<p>This gem was a joy to unpick&hellip;it turns out, that when you try to use the Monkey C plugin
+from within Visual Studio Code the layout of your workspace will determine if your project runs
+or not.</p>
+<p>This may not matter to everyone, but I&rsquo;d be surprised if I&rsquo;m the only one who has fallen foul of
+this bug(?). I like to keep my things organised, so my code layout is something like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">garmin
+├── faces
+│   ├── face1
+│   └── face2
+├── fonts
+│   └── font1
+└── widgets
+    └── widget1
+</code></pre></td></tr></table>
+</div>
+</div><p>If I&rsquo;m working on watch faces, I&rsquo;ll usually open up a workspace in VS Code, which in turn loads my
+<code>garmin/faces/*</code> directories, the workspace is seen as a single parent folder in VS Code
+with all project folders available to me in that single tree view.</p>
+<p>Take the below screenshots, the first shows a workspace which is made up of a single folder,
+containing all other folders. This is how I usually use VS Code.</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/single-parent-workspace.png" title="/posts/images/2021/03/20/single-parent-workspace.png" data-thumbnail="/posts/images/2021/03/20/single-parent-workspace.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/single-parent-workspace.png"
+            data-srcset="/posts/images/2021/03/20/single-parent-workspace.png, /posts/images/2021/03/20/single-parent-workspace.png 1.5x, /posts/images/2021/03/20/single-parent-workspace.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/single-parent-workspace.png" height="33%" width="33%" />
+    </a>
+<p>The following screenshot, shows a workspace that is made up of
+multiple folders.</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/multi-folder-workspace.png" title="/posts/images/2021/03/20/multi-folder-workspace.png" data-thumbnail="/posts/images/2021/03/20/multi-folder-workspace.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/multi-folder-workspace.png"
+            data-srcset="/posts/images/2021/03/20/multi-folder-workspace.png, /posts/images/2021/03/20/multi-folder-workspace.png 1.5x, /posts/images/2021/03/20/multi-folder-workspace.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/multi-folder-workspace.png" height="33%" width="33%" />
+    </a>
+<p>The net result is largely the same, a view of my watch faces available from one sidebar,
+crucially however, only the setup in the second screenshot will allow you to run/build
+any of your applications.</p>
+<p>If you try to launch an application from the single folder workspace</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/single-parent-run.png" title="/posts/images/2021/03/20/single-parent-run.png" data-thumbnail="/posts/images/2021/03/20/single-parent-run.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/single-parent-run.png"
+            data-srcset="/posts/images/2021/03/20/single-parent-run.png, /posts/images/2021/03/20/single-parent-run.png 1.5x, /posts/images/2021/03/20/single-parent-run.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/single-parent-run.png" height="33%" width="33%" />
+    </a>
+<p>You end up with the following error</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/monkey-c-error.png" title="/posts/images/2021/03/20/monkey-c-error.png" data-thumbnail="/posts/images/2021/03/20/monkey-c-error.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/monkey-c-error.png"
+            data-srcset="/posts/images/2021/03/20/monkey-c-error.png, /posts/images/2021/03/20/monkey-c-error.png 1.5x, /posts/images/2021/03/20/monkey-c-error.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/monkey-c-error.png" height="33%" width="33%" />
+    </a>
+<p>Same project, same code, but different workspace layout</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/multi-folder-run.png" title="/posts/images/2021/03/20/multi-folder-run.png" data-thumbnail="/posts/images/2021/03/20/multi-folder-run.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/multi-folder-run.png"
+            data-srcset="/posts/images/2021/03/20/multi-folder-run.png, /posts/images/2021/03/20/multi-folder-run.png 1.5x, /posts/images/2021/03/20/multi-folder-run.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/multi-folder-run.png" height="33%" width="33%" />
+    </a>
+<p>You get a running application</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/running-app.png" title="/posts/images/2021/03/20/running-app.png" data-thumbnail="/posts/images/2021/03/20/running-app.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/running-app.png"
+            data-srcset="/posts/images/2021/03/20/running-app.png, /posts/images/2021/03/20/running-app.png 1.5x, /posts/images/2021/03/20/running-app.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/running-app.png" height="33%" width="33%" />
+    </a>
+<p>I&rsquo;ve lost track of how many hours I spent trying to work this one out or where the issue
+lies.
+I cannot say who is to blame for it, Garmin, Microsoft or my perverse use of workspaces.
+Hopefully, I&rsquo;ve saved someone else the hassle with this&hellip;</p>
+<h3 id="gotcha-3-manifest-editing-became-that-little-bit-harder"><strong>Gotcha 3:</strong> Manifest Editing Became That Little Bit Harder</h3>
+<p>The <code>manifest.xml</code> file is used to set metadata components of your application, typically
+things like app id, the app type, targeted devices, supported languages and a few
+other bits. You know, the bits of information that are only of any importance if you
+want to test or release your application.</p>
+<p>If you really wanted to, you could
+<a href="https://developer.garmin.com/connect-iq/core-topics/manifest-and-permissions/" target="_blank" rel="noopener noreffer">create and populate</a>
+this file by hand, though I don&rsquo;t think this is advised.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!-- This is a generated file. It is highly recommended that you DO NOT edit this file. --&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>That comment populates the head of all manifest files generated during project creation.
+I&rsquo;m guessing it&rsquo;s pretty important.</p>
+<p>Luckily for us, the Visual Studio Code plugin offers the ability to populate
+the manifest file automatically. That is, once you&rsquo;ve completed the song and dance
+required to access the correct command from within the command palette.</p>
+<p>The plugin has several options which can be triggered, the options and their roles are below</p>
+<ul>
+<li><code>Monkey C: Edit Application</code> - to update the application attributes</li>
+<li><code>Monkey C: Set Products by Version</code> - lets you add all products that meet the minimum
+SDK version of the application</li>
+<li><code>Monkey C: Edit Products</code> - lets you add or remove any product</li>
+<li><code>Monkey C: Edit Permissions</code> - to update permissions</li>
+<li><code>Monkey C: Edit Languages</code> - to edit your compatible language list</li>
+<li><code>Monkey C: Configure Monkey</code> Barrel - to edit the included barrels</li>
+</ul>
+<p>Once triggered, you go on to complete a form like user interface that updates the manifest
+file as you work your way through it.</p>
+<p>So what&rsquo;s the problem? Well, you see, while the above does work, and the UI/UX is
+most likely the best that can be done within the constraints of a Visual Studio Code
+plugin, it just isn&rsquo;t as streamlined as Eclipse&hellip;yes, I said it.
+Eclipse actually offers a better experience for this task 🤯</p>
+<p>The two areas which I think users will feel the impact of this new manifest editing
+system are:</p>
+<ul>
+<li>
+<p><strong>Ease of use</strong> - in Eclipse you don&rsquo;t need to remember several different commands
+in order to edit different aspects of your manifest file, you simply click on the file
+itself and are taken to the manifest editor viewport.</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/manifest1.png" title="/posts/images/2021/03/20/manifest1.png" data-thumbnail="/posts/images/2021/03/20/manifest1.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/manifest1.png"
+            data-srcset="/posts/images/2021/03/20/manifest1.png, /posts/images/2021/03/20/manifest1.png 1.5x, /posts/images/2021/03/20/manifest1.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/manifest1.png" height="33%" width="33%" />
+    </a>
+<p>It&rsquo;s not perfect, something could be said about the sheer amount whitespace and
+the small, almost invisible tabs at the bottom of the screen (which I&rsquo;ve highlighted).
+At least everything is accessible in one place and I&rsquo;m not going to forget which incantation
+of the command palette I need to edit a particular piece of the manifest file.</p>
+</li>
+<li>
+<p><strong>Missing information</strong> - this is particularly pertinent when working with the ever
+increasing Garmin product list. In Eclipse, you could hover over a product
+and you&rsquo;d get some basic information about its screen resolution and shape of a given product.</p>
+<p>This may seem to be irrelevant information, but when trying to support some 60+
+products having the ability to check if a product is compatible with your application&rsquo;s
+screen shape and resolution layouts is up there with knowing the memory constraints
+and SDK compatibility of each device.</p>
+<p>In the below screenshots you can see the Eclipse product list vs the Visual
+Studio Code product list alongside additional device data achieved by hovering over
+a product. Hint, only one screenshot shows this additional data, unsurprisingly, it&rsquo;s also the one I prefer!</p>
+<a class="lightgallery" href="/posts/images/2021/03/20/manifest2.png" title="/posts/images/2021/03/20/manifest2.png" data-thumbnail="/posts/images/2021/03/20/manifest2.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/manifest2.png"
+            data-srcset="/posts/images/2021/03/20/manifest2.png, /posts/images/2021/03/20/manifest2.png 1.5x, /posts/images/2021/03/20/manifest2.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/manifest2.png" height="33%" width="33%" />
+    </a>
+<a class="lightgallery" href="/posts/images/2021/03/20/product-list.png" title="/posts/images/2021/03/20/product-list.png" data-thumbnail="/posts/images/2021/03/20/product-list.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/posts/images/2021/03/20/product-list.png"
+            data-srcset="/posts/images/2021/03/20/product-list.png, /posts/images/2021/03/20/product-list.png 1.5x, /posts/images/2021/03/20/product-list.png 2x"
+            data-sizes="auto"
+            alt="/posts/images/2021/03/20/product-list.png" height="33%" width="33%" />
+    </a>
+<p>Now in all honesty, if your desire is to really understand device compatibility
+<a href="https://developer.garmin.com/connect-iq/compatible-devices/" target="_blank" rel="noopener noreffer">there&rsquo;s a web page</a> that
+provides more information about the subject. But surely Garmin could fit a few extra characters
+somewhere in their Visual Studio Code dropdown?</p>
+</li>
+</ul>
+<p>All in all, the Visual Studio Code plugin is still in development, Garmin have been
+releasing relatively frequently and I expect as Eclipse gets phased out in favour of
+VS Code, some of the UI and UX issues I&rsquo;ve mentioned will get fixed.</p>
+<p>Given where I am in my journey developing for the CIQ platform, the VS Code extension
+has meant I could ditch my ZSH profile functions, instead running and building my
+application from VS Code directly. However, I&rsquo;ve not yet uninstalled Eclipse, the
+experience determining which devices I can or want to support for my applications is
+simply that much better than the VS Code alternative, which is a frustrating mix of scrolling
+between VS Code&rsquo;s product listing and through Garmin&rsquo;s device compatibility page.</p>
+<p>And with that, thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-03-20</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/posts/2021/03/20/ciq-development-with-vscode/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" data-title="CIQ Development With VSCode - The Gotchas" data-hashtags="garmin,ciq,vscode,eclpise,garmin developer conference"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" data-hashtag="garmin"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" data-title="CIQ Development With VSCode - The Gotchas" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" data-title="CIQ Development With VSCode - The Gotchas"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://www.peteravdjian.com/posts/2021/03/20/ciq-development-with-vscode/" data-title="CIQ Development With VSCode - The Gotchas"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/garmin/">garmin</a>,&nbsp;<a href="/tags/ciq/">ciq</a>,&nbsp;<a href="/tags/vscode/">vscode</a>,&nbsp;<a href="/tags/eclpise/">eclpise</a>,&nbsp;<a href="/tags/garmin-developer-conference/">garmin developer conference</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2021/03/14/how-to-set-up-a-new-mac/" class="prev" rel="prev" title="How To Set Up a New Mac"><i class="fas fa-angle-left fa-fw"></i>How To Set Up a New Mac</a>
+            <a href="/posts/2021/03/28/how-to-create-custom-decks-table-top-simulator/" class="next" rel="next" title="How to Create Custom Card Decks With Tabletop Simulator">How to Create Custom Card Decks With Tabletop Simulator<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Peter Avdjian</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

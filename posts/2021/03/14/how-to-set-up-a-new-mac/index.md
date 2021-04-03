@@ -38,7 +38,7 @@ brave-browser \
 clipy \
 discord \
 fzf \
-grandperspectvie \
+grandperspective \
 iterm2 \
 itsycal \
 joplin \
@@ -50,9 +50,17 @@ the_silver_searcher \
 trash \
 tree \
 typora \
-visual-code-studio \
+visual-studio-code \
 zsh-syntax-highlighting
 ```
+
+{{< admonition type=warning open=true >}}
+Once completed, you'll need to install the keybindings for `fzf`, when installing items one at a time it's easy to
+spot messages of additional setup steps, however during a bulk install such as that detailed above it is easily missed.
+Make sure to run:
+
+`/usr/local/opt/fzf/install`
+{{< /admonition >}}
 
 ## Pimp My Prompt
 At this point I like to make a few adjustments to my shell environment, firstly, a terminal theme.
